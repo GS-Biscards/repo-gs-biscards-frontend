@@ -2,7 +2,7 @@ export interface User {
     id: string,
     userId: string,
     userType: string,
-    template: string,
+    template: string | null,
     firstName: string,
     lastName: string,
     birth: string,

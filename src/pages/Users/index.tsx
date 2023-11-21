@@ -12,21 +12,24 @@ interface Props {
 
 const UserPage = ({ user }: Props) => {
     let TemplateComponent = null;
-
-    switch (user.template) {
-        case 'BusinessTemplate':
-            TemplateComponent = BusinessTemplate;
-            break;
+    
+    if (user.template !== undefined) {
+        switch (user.template) {
+            case 'BusinessTemplate':
+                TemplateComponent = BusinessTemplate;
+                break;
             case 'CurriculumTemplate':
                 TemplateComponent = CurriculumTemplate;
                 break;
-        case 'SimpleTemplate':
-            TemplateComponent = SimpleTemplate;
-            break;
-        default:
-            TemplateComponent = DefaultTemplate;
-            break;
+            case 'SimpleTemplate':
+                TemplateComponent = SimpleTemplate;
+                break;
+            default:
+                TemplateComponent = DefaultTemplate;
+                break;
+        }
     }
+
     return (
         <div>
             {TemplateComponent && <TemplateComponent user={user} />}
