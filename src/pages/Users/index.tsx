@@ -6,14 +6,14 @@ import BusinessTemplate from '@/components/BusinessTemplae';
 import CurriculumTemplate from '@/components/CurriculumTemplate';
 
 interface Props {
-    user: User;
+    user: User | undefined;
 
 }
 
 const UserPage = ({ user }: Props) => {
     let TemplateComponent = null;
-    
-    if (user.template !== undefined) {
+
+    if (user && user.template !== undefined) {
         switch (user.template) {
             case 'BusinessTemplate':
                 TemplateComponent = BusinessTemplate;
