@@ -32,7 +32,7 @@ const Gallery = ({ user }: Props) => {
             {
               user.galleryImg.filter((_, index: number) => index % 2 === 0).map((pic: any, index: number) => {
                 return (
-                  <div className="rounded-lg p-6 dark:border-[2px] border-[#212425] mb-4" style={{ background: "transparent" }}>
+                  <div key={`gallery-img-first-${index}`} className="rounded-lg p-6 dark:border-[2px] border-[#212425] mb-4" style={{ background: "transparent" }}>
                     <div className="overflow-hidden rounded-lg" onClick={() => openModal(index)}>
                       <img
                         alt="portfolio Image"
@@ -55,7 +55,7 @@ const Gallery = ({ user }: Props) => {
             {
               user.galleryImg.filter((_, index: number) => index % 2 !== 0).map((pic: any, index: number) => {
                 return (
-                  <div className="rounded-lg p-6 dark:border-[2px] border-[#212425] mb-4" style={{ background: "transparent" }}>
+                  <div key={`gallery-img-second-${index}`}  className="rounded-lg p-6 dark:border-[2px] border-[#212425] mb-4" style={{ background: "transparent" }}>
                     <div className="overflow-hidden rounded-lg" onClick={() => openModal(index)}>
                       <img
                         alt="portfolio Image"
