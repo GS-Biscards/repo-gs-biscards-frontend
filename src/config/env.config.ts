@@ -1,0 +1,1 @@
+export const URL_GDRIVE="https://drive.google.com/uc?export=view&id="

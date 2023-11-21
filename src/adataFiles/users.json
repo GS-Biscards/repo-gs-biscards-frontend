@@ -1,0 +1,116 @@
+{
+    "users": [
+        {
+            "id": "123456789",
+            "userId": "guille-cau-julia",
+            "userType": "persona",
+            "template": "CurriculumTemplate",
+            "firstName": "Guillermo",
+            "lastName": "Cau Juliá",
+            "birth": "12/06/1992",
+            "personalPhone": "388596123",
+            "workPhone": "38845698711",
+            "extraPhone": null,
+            "email": "guillecaujulia@gmail.com",
+            "address": "calle n",
+            "numberAddress": "56",
+            "locality": "San Salvador de Jujuy",
+            "province": "Jujuy",
+            "country": "Argentina",
+            "description": "CEO BisCards, CMO Wijex",
+            "histoy": "“Cada negocio tiene una historia, cada organización una visión, cada empresario tiene un sueño y cada producto tiene magia”, esta frase representa a Wijex en su máximo esplendor. El SUEÑO de unos empresarios que se organizaron dio fruto a la VISIÓN que tiene wijex, dándole MAGIA a cada producto que tenemos y por eso yo estoy más que orgulloso de ser parte de esta HISTORIA",
+            "backgroundImg": "",
+            "profileImg": "https://drive.google.com/uc?export=view&id=159d9POiA0DjCTzTwUNCoJfSEedM1bjXG",
+            "histoyImg": "",
+            "galleryImg": [
+                {
+                    "url": "https://drive.google.com/uc?export=view&id=1ovwFptUy2EjfF_JEGyJHsVSfFPkWIOiu"
+                },
+                {
+                    "url": "https://drive.google.com/uc?export=view&id=18xjTtUdgXYljHLu876maz__yYyjXD033"
+                },
+                {
+                    "url": "https://drive.google.com/uc?export=view&id=1jFXme7PAFQVTUMJ9Ftj45GsjvZTeIe2T"
+                },
+                {
+                    "url": "https://drive.google.com/uc?export=view&id=1A5J4QjsXvWFUo5vNzNOA0rk61i49YA-P"
+                }
+            ],
+            "socilMedia": [
+                {
+                    "facebookUrl": ""
+                },
+                {
+                    "igUrl": ""
+                },
+                {
+                    "inUrl": ""
+                },
+                {
+                    "telegramUrl": ""
+                },
+                {
+                    "tiktokUrl": ""
+                }
+            ],
+            "contactImg": "",
+            "downloadFile": "https://drive.google.com/file/d/1OPPE_hS33S3uXFq87DKq2xMU9CkW8Mbp/view"
+        },
+        {
+            "id": "123456789",
+            "userId": "sofi-sofia",
+            "userType": "persona",
+            "template": "SimpleTemplate",
+            "firstName": "Sofi",
+            "lastName": "Sofia",
+            "birth": "12/06/1992",
+            "personalPhone": "388596123",
+            "workPhone": "38845698711",
+            "extraPhone": null,
+            "email": "sofia@gmail.com",
+            "address": "calle n",
+            "numberAddress": "56",
+            "locality": "San Salvador de Jujuy",
+            "province": "Jujuy",
+            "country": "Argentina",
+            "description": "Gerente de ventas de BisCards",
+            "histoy": "Soy la persona designada en una organización para coordinar un equipo con el propósito de alcanzar el objetivo deseado en el área comercial. Motiva y dirige a los demás integrantes para tomar las mejores decisiones y aumentar las ganancias de la empresa en la que se desenvuelven.",
+            "backgroundImg": "",
+            "profileImg": "https://drive.google.com/uc?export=view&id=1PuYliMK18ckCa4S1MzbmCIGrviK-5cWO",
+            "histoyImg": "https://drive.google.com/uc?export=view&id=1zlHFEM7ZgNbdLxTb8zKPoDbLTR5jUfQW",
+            "galleryImg": [
+                {
+                    "url": "https://drive.google.com/uc?export=view&id=1h1PX8slBqPEVaLpYC0mwBWSEGBL1Fzg_"
+                },
+                {
+                    "url": "https://drive.google.com/uc?export=view&id=1KI7uKrhSbpgyjs_EyEZgtDjx-Zgm6DTJ"
+                },
+                {
+                    "url": "https://drive.google.com/uc?export=view&id=1PuYliMK18ckCa4S1MzbmCIGrviK-5cWO"
+                },
+                {
+                    "url": "https://drive.google.com/uc?export=view&id=1nc6x6Xt-aX0rqZvuO27czERKKHiGzvfg"
+                }
+            ],
+            "socilMedia": [
+                {
+                    "facebookUrl": ""
+                },
+                {
+                    "igUrl": ""
+                },
+                {
+                    "inUrl": ""
+                },
+                {
+                    "telegramUrl": ""
+                },
+                {
+                    "tiktokUrl": ""
+                }
+            ],
+            "contactImg": "https://drive.google.com/uc?export=view&id=1h1PX8slBqPEVaLpYC0mwBWSEGBL1Fzg_",
+            "downloadFile": "https://drive.google.com/uc?export=view&id=1OPPE_hS33S3uXFq87DKq2xMU9CkW8Mbp"
+        }
+    ]
+}
