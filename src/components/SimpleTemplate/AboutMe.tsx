@@ -42,9 +42,12 @@ const AboutMe = ({ user }: Props) => {
                             ¿Quien soy?
                         </h3>
                         {
-                            dividirEnParrafos(user.histoy).map((frase: string) => {
+                            dividirEnParrafos(user.histoy).map((frase: string, index:number) => {
                                 return (
-                                    <p className="text-gray-lite leading-7 pb-2">
+                                    <p 
+                                    key={`frase-divide${index}`}
+                                    className="text-gray-lite leading-7 pb-2"
+                                    >
                                         {frase}
                                     </p>
                                 )

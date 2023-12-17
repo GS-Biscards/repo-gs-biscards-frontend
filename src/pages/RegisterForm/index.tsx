@@ -59,12 +59,10 @@ export default function RegisterFormPage() {
     register,
     handleSubmit,
     formState: { errors },
-    watch,
   } = useForm();
 
   const onSubmit = (data: any) => {
     console.log(data);
-    // You can perform further actions with the form data here
   };
   return (
     <div>
