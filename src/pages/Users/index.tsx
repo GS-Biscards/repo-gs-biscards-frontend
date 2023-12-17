@@ -6,11 +6,11 @@ import BusinessTemplate from '@/components/BusinessTemplae';
 import CurriculumTemplate from '@/components/CurriculumTemplate';
 
 interface Props {
-    user: User | undefined;
-
+    user: User;
 }
 
 const UserPage = ({ user }: Props) => {
+    
     let TemplateComponent = null;
 
     if (user && user.template !== undefined) {

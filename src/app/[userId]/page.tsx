@@ -5,7 +5,7 @@ import Spin from '@/components/Spin';
 import { User } from '@/models/user.model';
 import { getUserId } from '@/services/user.services';
 
-const UserIdPage = ({ params }: any) => {
+const UserId = ({ params }: any) => {
   const [isLoading, setIsLoading] = React.useState<boolean>(true);
   const [user, setUser] = React.useState<User | null>(null);
   React.useEffect(() => {
@@ -32,4 +32,4 @@ const UserIdPage = ({ params }: any) => {
   )
 }
 
-export default UserIdPage
+export default UserId;

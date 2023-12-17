@@ -1,8 +1,20 @@
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
+import { Inter, Poppins, Roboto_Slab } from 'next/font/google'
 import './globals.css'
 
-const inter = Inter({ subsets: ['latin'] })
+const poppins = Poppins({ 
+  weight: ["100", "300","400", "500", "700", "900"], 
+  subsets: ["latin"],  
+  display: 'swap',
+  variable: '--font-poppins'
+}
+  )
+const robotoslab = Roboto_Slab({ 
+  weight: ["100", "300","400", "500", "700", "900"], 
+  subsets: ["latin"],  
+  display: "swap",
+  variable: '--font-robotoslab'
+})
 
 export const metadata: Metadata = {
   title: 'GS-Biscards',
@@ -16,7 +28,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={`${robotoslab.variable} ${poppins.variable}`}>
+        {children}
+        </body>
     </html>
   )
 }

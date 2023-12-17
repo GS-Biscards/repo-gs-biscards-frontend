@@ -10,20 +10,49 @@ export interface User {
     workPhone: string,
     extraPhone: string,
     email: string,
-    address: string,
-    numberAddress: string,
+    address: Address,
+    description: string
+    histoy: string,
+    accountImg: AccountImg,
+    galleryImg: ImageUrl[],
+    socialMedia: SocialMedia
+}
+
+export interface Address {
+    street: string,
+    number: string,
     locality: string,
     province: string,
     country: string,
-    description: string
-    histoy: string,
-    profileImg: string,
-    histoyImg: string,
-    galleryImg: urlImg[],
+    zipCode: string,
+    latitude: string,
+    longitud: string
+}
+
+export interface AccountImg {
+    backgroundImg: string,
     contactImg: string,
+    histoyImg: string,
+    profileImg: string,
     downloadFile: string,
 }
 
-export interface urlImg {
+export interface ImageUrl {
     url: string
 }
+
+export interface SocialMedia {
+    facebookUrl: string,
+    instagramUrl: string,
+    linkedInUsrl: string,
+    telegramUrl: string,
+    tikTokUrl: string,
+    twitterUrl: string,
+    youTubeUrl: string
+}
+
+export interface SuggestedUserId {
+    existingUser: boolean,
+    suggestedUserId: string[]
+}
+

@@ -1,5 +1,6 @@
 import React from 'react';
 import Modal from 'react-modal';
+import SlideImage from '../SlideImage';
 import { User } from '@/models/user.model';
 import { Carousel } from 'react-responsive-carousel';
 import "react-responsive-carousel/lib/styles/carousel.min.css";
@@ -21,70 +22,96 @@ const Gallery = ({ user }: Props) => {
     setSelectedImageIndex(null);
     setModalIsOpen(false);
   };
+
+
+
   return (
-    <div className="py-12" id='st-gallery'>
-      <h2 className="after-effect after:left-48 mt-12 lg:mt-0">Galleria</h2>
-      <div className="simple-template-grid md:pt-[40px]">
-        <div style={{ width: "33.3333%" }} className="simple-template-grid_column">
-          {
-            user.galleryImg.filter((_, index) => index % 3 === 0).map((pic: any, index: number) => {
-              return (
-                <div key={`gallery-img-first-${index}`}  className="rounded-lg p-6 dark:border-[2px] border-[#212425] mb-4 md:mb-8" style={{ background: "transparent" }}>
-                  <div className="overflow-hidden rounded-lg" onClick={() => openModal(index)}>
-                    <img
-                      alt="portfolio Image"
-                      srcSet=""
-                      src={pic.url}
-                      width="300"
-                      height="300"
-                      decoding="async"
-                      data-nimg="1"
-                      className="w-full cursor-pointer transition duration-200 ease-in-out transform hover:scale-110 rounded-lg h-auto "
-                      style={{ color: "transparent" }} />
+    <div className="pt-12 " id='st-gallery' >
+      <div className="flex items-center">
+        <h2 className="ff-roboto-slab after-effect mr-6">
+          Galleria
+        </h2>
+        <div className="flex-1 title-line max-w-[150px] md:max-w-[220px] lg:max-w-[300px] " />
+      </div>
+
+      <div className="pt-[40px] md:hidden" >
+        <SlideImage data={user.galleryImg} selectedImg={0} />
+      </div>
+      <div className="pt-[40px] hidden md:flex " >
+        <div className="simple-template-grid ">
+          <div style={{ width: "33.3333%" }} className="simple-template-grid_column">
+            {
+              user.galleryImg.filter((_, index) => index % 3 === 0).map((pic: any, index: number) => {
+                return (
+                  <div
+                    key={`gallery-img-first-${index}`}
+                    className="rounded-lg p-1 md:p-4 lg:p-6  dark:border-[2px] border-[#212425] mb-4 md:mb-8"
+                    style={{ background: "transparent" }}
+                  >
+                    <div className="overflow-hidden rounded-lg" onClick={() => openModal(index)}>
+                      <img
+                        alt="portfolio Image"
+                        srcSet=""
+                        src={pic.url}
+                        width="300"
+                        height="300"
+                        decoding="async"
+                        data-nimg="1"
+                        className="w-full cursor-pointer transition duration-200 ease-in-out transform hover:scale-110 rounded-lg h-auto "
+                        style={{ color: "transparent" }} />
+                    </div>
                   </div>
-                </div>
-              )
-            })}
-        </div>
-        <div style={{ width: "33.3333%" }} className="simple-template-grid_column">
-          {
-            user.galleryImg.filter((_, index) => index % 3 === 1).map((pic: any, index: number) => {
-              return (
-                <div key={`gallery-img-secound-${index}`}  className="rounded-lg p-6 dark:border-[2px] border-[#212425]" style={{ background: "transparent" }}>
-                  <div className="overflow-hidden rounded-lg" onClick={() => openModal(index)}>
-                    <img
-                      alt="portfolio Image"
-                      srcSet=""
-                      src={pic.url}
-                      width="300"
-                      height="300"
-                      decoding="async"
-                      data-nimg="1"
-                      className="w-full cursor-pointer transition duration-200 ease-in-out transform hover:scale-110 rounded-lg h-auto "
-                      style={{ color: "transparent" }} />
-                  </div>
-                </div>)
-            })}
-        </div>
-        <div style={{ width: "33.3333%" }} className="simple-template-grid_column">
-          {
-            user.galleryImg.filter((_, index) => (index % 3 !== 0 && index % 3 !== 1)).map((pic: any, index: number) => {
-              return (
-                <div key={`gallery-img-therd-${index}`} className="rounded-lg p-6 dark:border-[2px] border-[#212425]" style={{ background: "transparent" }}>
-                  <div className="overflow-hidden rounded-lg" onClick={() => openModal(index)}>
-                    <img
-                      alt="portfolio Image"
-                      srcSet=""
-                      src={pic.url}
-                      width="300"
-                      height="300"
-                      decoding="async"
-                      data-nimg="1"
-                      className="w-full cursor-pointer transition duration-200 ease-in-out transform hover:scale-110 rounded-lg h-auto "
-                      style={{ color: "transparent" }} />
-                  </div>
-                </div>)
-            })}
+                )
+              })}
+          </div>
+          <div style={{ width: "33.3333%" }} className="simple-template-grid_column">
+            {
+              user.galleryImg.filter((_, index) => index % 3 === 1).map((pic: any, index: number) => {
+                return (
+                  <div
+                    key={`gallery-img-secound-${index}`}
+                    className="rounded-lg p-1 md:p-4 lg:p-6  dark:border-[2px] border-[#212425]"
+                    style={{ background: "transparent" }}
+                  >
+                    <div className="overflow-hidden rounded-lg" onClick={() => openModal(index)}>
+                      <img
+                        alt="portfolio Image"
+                        srcSet=""
+                        src={pic.url}
+                        width="300"
+                        height="300"
+                        decoding="async"
+                        data-nimg="1"
+                        className="w-full cursor-pointer transition duration-200 ease-in-out transform hover:scale-110 rounded-lg h-auto "
+                        style={{ color: "transparent" }} />
+                    </div>
+                  </div>)
+              })}
+          </div>
+          <div style={{ width: "33.3333%" }} className="simple-template-grid_column">
+            {
+              user.galleryImg.filter((_, index) => (index % 3 !== 0 && index % 3 !== 1)).map((pic: any, index: number) => {
+                return (
+                  <div
+                    key={`gallery-img-therd-${index}`}
+                    className="rounded-lg p-1 md:p-4 lg:p-6 dark:border-[2px] border-[#212425]"
+                    style={{ background: "transparent" }}
+                  >
+                    <div className="overflow-hidden rounded-lg" onClick={() => openModal(index)}>
+                      <img
+                        alt="portfolio Image"
+                        srcSet=""
+                        src={pic.url}
+                        width="300"
+                        height="300"
+                        decoding="async"
+                        data-nimg="1"
+                        className="w-full cursor-pointer transition duration-200 ease-in-out transform hover:scale-110 rounded-lg h-auto "
+                        style={{ color: "transparent" }} />
+                    </div>
+                  </div>)
+              })}
+          </div>
         </div>
       </div>
       <Modal
@@ -134,7 +161,6 @@ const Gallery = ({ user }: Props) => {
             ))}
           </Carousel>
         </div>
-
       </Modal >
     </div>
   )

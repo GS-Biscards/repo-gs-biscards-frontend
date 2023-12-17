@@ -11,4 +11,4 @@ const BusinessTemplate = ({user}: Props) => {
   )
 }
 
-export default BusinessTemplate
+export default BusinessTemplate;

@@ -1,18 +1,20 @@
-import { User } from "@/models/user.model";
-const userData = require("../adataFiles/users.json");
+import { API_URL } from "@/config/env.config";
+import axios from "axios";
 
 
-export const getUserId = (req: any) => {
+export const getUserId = async (req: any) => {
   const { userId } = req;
-  if (userData) {
-    if (userId) {
-      const user = userData.users.find((value: User) => value.userId == userId)
+
+  if (userId) {
+    try {
+      const user: any = await axios.post(API_URL.GET_USER_BY_USERID, { userId: userId })
       if (user) {
-        return user
-      } else {
-        return null
+        return user.data
       }
+    } catch (error) {
+      return null
     }
+  } else {
+    return null
   }
-  return null
 }

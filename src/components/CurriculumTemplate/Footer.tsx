@@ -1,15 +1,18 @@
-import React from 'react'
+import React from 'react';
 
-type Props = {}
-
-const Footer = (props: Props) => {
+const Footer = () => {
     return (
-        <footer className="overflow-hidden rounded-2xl bg-slate-50 dark:bg-black">
+        <footer className="overflow-hidden rounded-2xl bg-[#111111]">
             <div className="container">
-                <p className="text-center py-6 text-white">
+                <p className="text-center py-6 text-gray-500">
                     © 2023&nbsp;
-                    <a className="hover:text-[#FA5252] duration-300 transition" href="" target="_blank" rel="noopener noreferrer">
-                        GuillSoft
+                    <a
+                        className="hover:text-[#FA5252] duration-300 transition"
+                        href="https://guilsoft.com"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        GuilSoft
                     </a>&nbsp;
                     creado por Jarod17.
                 </p>

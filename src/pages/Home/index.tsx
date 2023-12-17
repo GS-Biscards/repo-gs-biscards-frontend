@@ -1,8 +1,6 @@
-import React from 'react'
+import React from 'react';
 
-type Props = {}
-
-const HomePage = (props: Props) => {
+const HomePage = () => {
     return (
         <div className="min-h-screen flex flex-col justify-center items-center">
             <img src="https://www.svgrepo.com/show/426192/cogs-settings.svg" alt="Logo" className="mb-8 h-40" />
@@ -20,4 +18,4 @@ const HomePage = (props: Props) => {
     )
 }
 
-export default HomePage
+export default HomePage;

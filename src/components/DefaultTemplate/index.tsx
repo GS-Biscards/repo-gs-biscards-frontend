@@ -1,5 +1,5 @@
-import { User } from '@/models/user.model'
-import React from 'react'
+import React from 'react';
+import { User } from '@/models/user.model';
 
 interface Props {
   user?: User
