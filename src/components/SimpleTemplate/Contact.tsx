@@ -1,11 +1,48 @@
 import React from 'react';
+import emailjs from '@emailjs/browser';
 import { User } from '@/models/user.model';
+import { useForm } from 'react-hook-form';
 
 interface Props {
     user: User;
 }
 
 const Contact = ({ user }: Props) => {
+    const form = React.useRef();
+    const { register, getValues, reset } = useForm<
+        {
+            name: string,
+            email: string,
+            message: string,
+        }>();
+    const [disabledBtn, setDisableBtn] = React.useState(false);
+
+    const sendEmail = async (data: any) => {
+        console.log("data", data)
+        setDisableBtn(true)
+        let formCurrent: any = {
+            to_name: user.firstName,
+            to_email: user.email,
+            from_name: data.name,
+            from_email: data.email,
+            from_message: data.message
+        }
+
+        await emailjs
+            .sendForm('service_e12e5im', 'template_cp2nein', formCurrent, { publicKey: 'J6d1MFSmExd0eam3p' })
+            .then(
+                () => {
+                    console.log('SUCCESS!');
+                },
+                (error) => {
+                    console.log('FAILED...', error.text);
+                },
+            );
+        console.log("formCurrent", formCurrent)
+        reset()
+        console.log("data", data)
+        setDisableBtn(false)
+    }
     return (
         <div className="pt-12 " id='st-contact'>
             <div className="flex items-center">
@@ -22,10 +59,11 @@ const Contact = ({ user }: Props) => {
                                 Quiero más información
                             </span>
                         </h3>
-                        <form id="myForm">
+                        <form id="myForm" >
                             <div className="relative z-0 w-full mt-[40px] mb-8 group">
                                 <input
                                     type="text"
+                                    {...register('name', { required: true })}
                                     name="name"
                                     className="ff-poppins block autofill:bg-transparent py-2.5 px-0 w-full text-sm text-gray-lite bg-transparent border-0 border-b-[2px] border-[#B5B5B5] appearance-none dark:border-[#333333] dark:focus:border-[#FF6464] focus:outline-none focus:ring-0 focus:border-[#FF6464] peer"
                                     placeholder=" "
@@ -40,7 +78,7 @@ const Contact = ({ user }: Props) => {
                             <div className="relative z-0 w-full mb-8 group">
                                 <input
                                     type="email"
-                                    name="user_email"
+                                    {...register('email', { required: true })}
                                     className="ff-poppins block autofill:text-red-900 needed py-2.5 px-0 w-full text-sm text-gray-lite bg-transparent border-0 border-b-[2px] border-[#B5B5B5] appearance-none dark:border-[#333333] dark:focus:border-[#FF6464] focus:outline-none focus:ring-0 focus:border-[#5185D4] peer"
                                     placeholder=" "
                                     id="user_email"
@@ -56,7 +94,7 @@ const Contact = ({ user }: Props) => {
                             <div className="relative z-0 w-full mb-8 group">
                                 <input
                                     type="text"
-                                    name="message"
+                                    {...register('message', { required: true })}
                                     className="block ff-poppins autofill:bg-yellow-200 py-2.5 px-0 w-full text-sm text-gray-lite bg-transparent border-0 border-b-[2px] border-[#B5B5B5] appearance-none dark:border-[#333333] dark:focus:border-[#FF6464] focus:outline-none focus:ring-0 focus:border-[#CA56F2] peer"
                                     placeholder=" "
                                     id="message"
@@ -70,9 +108,10 @@ const Contact = ({ user }: Props) => {
                             </div>
                             <div className="transition-all duration-300 ease-in-out inline-block hover:bg-gradient-to-r from-[#FA5252] to-[#DD2476] rounded-lg mt-3">
                                 <input
-                                    type="submit"
+                                    type="button"
                                     className="ff-poppins transition ease-in duration-200 font-semibold cursor-pointer border-color-910 hover:border-transparent px-6 py-2 rounded-lg border-[2px] hover:text-white "
                                     value="Enviar"
+                                    onClick={() => sendEmail(getValues())}
                                 />
                             </div>
                         </form>

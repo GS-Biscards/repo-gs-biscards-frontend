@@ -1,11 +1,23 @@
 import React from 'react';
 import { User } from '@/models/user.model';
+import FileSaver from "file-saver";
 
 interface Props {
     user: User;
 }
 
 const ProfileSection = ({ user }: Props) => {
+    const saveContact = () => {
+        var file = new Blob(
+            [`BEGIN:VCARD\nVERSION:3.0\nFN;CHARSET=UTF-8:${user.lastName} ${''} ${''}\nN;CHARSET=UTF-8:${user.firstName};${''};${''};;\nEMAIL;CHARSET=UTF-8;type=WORK,INTERNET:${user.email}\nTEL;TYPE=WORK,VOICE:${user.personalPhone}\nTEL;TYPE=WORK,VOICE:${user.workPhone}\nLABEL;CHARSET=UTF-8;TYPE=WORK:${user.address}\nADR;CHARSET=UTF-8;TYPE=WORK:;;;;;;\nROLE;CHARSET=UTF-8:${""}\nORG;CHARSET=UTF-8:${''}\nURL;type=WORK;CHARSET=UTF-8:${window.location.href}\nREV:2020-08-31T03:41:09.870Z\nEND:VCARD`],
+            { type: "text/vcard;charset=utf-8" }
+        );
+        FileSaver.saveAs(
+            file,
+            `${user.firstName}_${user.lastName}.vcf`,
+            true
+        );
+    }
     return (
 
         <div className="w-full mb-6 lg:mb-0 mx-auto relative text-center bg-[#111111] px-6 rounded-[20px] mt-[180px] md:mt-[220px] lg:mt-0 ">
@@ -117,9 +129,13 @@ const ProfileSection = ({ user }: Props) => {
                                 <path d="M176 216h160c8.84 0 16-7.16 16-16v-16c0-8.84-7.16-16-16-16H176c-8.84 0-16 7.16-16 16v16c0 8.84 7.16 16 16 16zm-16 80c0 8.84 7.16 16 16 16h160c8.84 0 16-7.16 16-16v-16c0-8.84-7.16-16-16-16H176c-8.84 0-16 7.16-16 16v16zm96 121.13c-16.42 0-32.84-5.06-46.86-15.19L0 250.86V464c0 26.51 21.49 48 48 48h416c26.51 0 48-21.49 48-48V250.86L302.86 401.94c-14.02 10.12-30.44 15.19-46.86 15.19zm237.61-254.18c-8.85-6.94-17.24-13.47-29.61-22.81V96c0-26.51-21.49-48-48-48h-77.55c-3.04-2.2-5.87-4.26-9.04-6.56C312.6 29.17 279.2-.35 256 0c-23.2-.35-56.59 29.17-73.41 41.44-3.17 2.3-6 4.36-9.04 6.56H96c-26.51 0-48 21.49-48 48v44.14c-12.37 9.33-20.76 15.87-29.61 22.81A47.995 47.995 0 0 0 0 200.72v10.65l96 69.35V96h320v184.72l96-69.35v-10.65c0-14.74-6.78-28.67-18.39-37.77z"></path>
                             </svg>
                         </span>
-                        <div className="text-left ml-2.5"><p className="text-xs text-[#A6A6A6]">Email</p>
+                        <div className="text-left ml-2.5">
+                            <p className="text-xs text-[#A6A6A6]">
+                                Email
+                            </p>
                             <p className="text-white break-all">
-                                <a className="hover:text-[#FA5252] duration-300 transition" href={`mailto:${user.email}`}>{user.email}</a></p>
+                                <a className="hover:text-[#FA5252] duration-300 transition" href={`mailto:${user.email}`}>{user.email}</a>
+                            </p>
                         </div>
                     </div>
                     <div className="flex py-2.5 undefined">
@@ -132,9 +148,18 @@ const ProfileSection = ({ user }: Props) => {
                             <p className="text-white break-all">{user.birth}</p>
                         </div>
                     </div>
+                    <div className="flex py-2.5 undefined cursor-pointer" onClick={ () => saveContact()}>
+                        <span className="flex-shrink-0 socialbtn bg-black text-[#C17CEB] shadow-md ">
+                            <img src="asset/icons/vcard.svg" className='w-[20px]'></img>
+                        </span>
+                        <div className="text-left ml-2.5">
+                            <p className="text-xs text-[#A6A6A6]">{"Vcard"}</p>
+                            <p className="text-white break-all">{"Guardar contacto"}</p>
+                        </div>
+                    </div>
                 </div>
                 <div
-                    onClick={() => window.open(user.accountImg.profileImg)}
+                    onClick={() => window.open(user.accountImg.downloadFile)}
                     className="inline-flex items-center mx-auto bg-gradient-to-r from-[#FA5252] to-[#DD2476] duration-200 transition ease-linear hover:bg-gradient-to-l from-[#DD2476] to-[#fa5252ef] px-8 py-3 text-lg text-white rounded-[35px] mt-6 cursor-pointer"
                 >
                     <img src="asset/icons/descarga-st.png" alt="icon" className="mr-2" />

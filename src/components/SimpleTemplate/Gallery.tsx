@@ -1,7 +1,7 @@
 import React from 'react';
 import Modal from 'react-modal';
-import SlideImage from '../SlideImage';
 import { User } from '@/models/user.model';
+import SlideImage from '@/components/SlideImage';
 import { Carousel } from 'react-responsive-carousel';
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 

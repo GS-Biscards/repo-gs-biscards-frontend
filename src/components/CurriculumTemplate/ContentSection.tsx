@@ -44,7 +44,7 @@ const ContentSection = ({ user, selectedComponent }: Props) => {
 
     if (isMobile) {
         return (
-            <div >           
+            <div >
                 <div className="lg:rounded-2xl bg-[#111111] rounded-2xl pb-12" >
                     <div data-aos="fade" className="aos-init aos-animate" id='cvt-about-me'>
                         <AboutMe user={user} />
@@ -57,7 +57,7 @@ const ContentSection = ({ user, selectedComponent }: Props) => {
                 </div>
                 <div className="lg:rounded-2xl bg-[#111111] rounded-2xl" id='cvt-contact'>
                     <div data-aos="fade" className="aos-init aos-animate">
-                        <Contact />
+                        <Contact user={user} />
                     </div>
                 </div>
             </div>

@@ -81,8 +81,8 @@ const Gallery = ({ user }: Props) => {
         className='modal'
       >
 
-        <div className=" w-full md:w-10/12 flex items-center lg:w-[850px] bg-white dark:bg-[#323232] mx-auto rounded-xl p-4 md:p-8 absolute left-1/2 top-1/2 transform -translate-x-[50%] -translate-y-[50%] shadow-lg ">
-          <div className=" overflow-y-scroll max-h-[80vh] no-scrollbar ">
+        <div className="w-full md:w-10/12 flex items-center lg:w-[850px] bg-white dark:bg-[#323232] mx-auto rounded-xl p-4 md:p-8 absolute left-1/2 top-1/2 transform -translate-x-[50%] -translate-y-[50%] shadow-lg ">
+          <div className="overflow-y-scroll max-h-[80vh] no-scrollbar ">
             <svg
               onClick={() => closeModal()}
               stroke="currentColor"

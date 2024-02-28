@@ -2,21 +2,25 @@ import React from 'react';
 
 interface Props {
     onHandleChange: any;
-
+    handleQrModal: any;
 }
 
-const NavBar = ({ onHandleChange }: Props) => {
-    const [activeNavItem, setActiveNavItem] = React.useState<string>('about-me'); 
+const NavBar = ({ onHandleChange, handleQrModal}: Props) => {
+
+    const [activeNavItem, setActiveNavItem] = React.useState<string>('about-me');
     const handleNavItemClick = (itemName: string) => {
         setActiveNavItem(itemName);
-        onHandleChange(itemName); 
+        onHandleChange(itemName);
     };
+    const handleQRItemClick = () => {
+        handleQrModal()
+    }
     return (
         <header className="lg:w-[526px] h-[144px] hidden lg:block p-[30px] ml-auto mb-10 rounded-[16px] bg-[#111111] ">
             <nav className="hidden lg:block">
                 <ul className="flex ">
                     <div
-                        className={`w-full h-20 rounded-[10px] cursor-pointer font-poppins font-medium mx-2.5 text-xtiny text-[#A6A6A6] justify-center flex flex-col items-center transition-all duration-300 ease-in-out hover:text-white bg-[#212425]  hover:bg-gradient-to-r from-[#FA5252] to-[#DD2476] lg:text-white ${ activeNavItem === 'about-me' ? "bg-gradient-to-r from-[#FA5252] to-[#DD2476]" : ""} `}
+                        className={`w-full h-20 rounded-[10px] cursor-pointer font-poppins font-medium mx-2.5 text-xtiny text-[#A6A6A6] justify-center flex flex-col items-center transition-all duration-300 ease-in-out hover:text-white bg-[#212425]  hover:bg-gradient-to-r from-[#FA5252] to-[#DD2476] lg:text-white ${activeNavItem === 'about-me' ? "bg-gradient-to-r from-[#FA5252] to-[#DD2476]" : ""} `}
                         onClick={() => handleNavItemClick("about-me")}>
                         <span className="text-xl mb-1">
                             <svg stroke="currentColor" fill="none" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
@@ -30,7 +34,7 @@ const NavBar = ({ onHandleChange }: Props) => {
                         Sobre Mí
                     </div>
                     <div
-                        className={`w-full h-20 rounded-[10px] cursor-pointer font-poppins font-medium mx-2.5 text-xtiny text-[#A6A6A6] justify-center flex flex-col items-center transition-all duration-300 ease-in-out hover:text-white bg-[#212425] hover:bg-gradient-to-r from-[#FA5252] to-[#DD2476] lg:text-white ${ activeNavItem === 'gallery' ? "bg-gradient-to-r from-[#FA5252] to-[#DD2476]" : ""} `}
+                        className={`w-full h-20 rounded-[10px] cursor-pointer font-poppins font-medium mx-2.5 text-xtiny text-[#A6A6A6] justify-center flex flex-col items-center transition-all duration-300 ease-in-out hover:text-white bg-[#212425] hover:bg-gradient-to-r from-[#FA5252] to-[#DD2476] lg:text-white ${activeNavItem === 'gallery' ? "bg-gradient-to-r from-[#FA5252] to-[#DD2476]" : ""} `}
                         onClick={() => handleNavItemClick("gallery")}>
                         <span className="text-xl mb-1">
                             <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 448 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
@@ -41,15 +45,28 @@ const NavBar = ({ onHandleChange }: Props) => {
                         Gallería
                     </div>
                     <div
-                        className={`w-full h-20 rounded-[10px] cursor-pointer font-poppins font-medium mx-2.5 text-xtiny text-[#A6A6A6] justify-center flex flex-col items-center transition-all duration-300 ease-in-out hover:text-white bg-[#212425]  hover:bg-gradient-to-r from-[#FA5252] to-[#DD2476] lg:text-white ${ activeNavItem === 'contact' ? "bg-gradient-to-r from-[#FA5252] to-[#DD2476]" : ""} `}
+                        className={`w-full h-20 rounded-[10px] cursor-pointer font-poppins font-medium mx-2.5 text-xtiny text-[#A6A6A6] justify-center flex flex-col items-center transition-all duration-300 ease-in-out hover:text-white bg-[#212425]  hover:bg-gradient-to-r from-[#FA5252] to-[#DD2476] lg:text-white ${activeNavItem === 'contact' ? "bg-gradient-to-r from-[#FA5252] to-[#DD2476]" : ""} `}
                         onClick={() => handleNavItemClick("contact")}>
                         <span className="text-xl mb-1">
-                            <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><g>
+                            <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+                                <g>
                                 <path fill="none" d="M0 0h24v24H0z"></path>
-                                <path d="M3 2h16.005C20.107 2 21 2.898 21 3.99v16.02c0 1.099-.893 1.99-1.995 1.99H3V2zm4 2H5v16h2V4zm2 16h10V4H9v16zm2-4a3 3 0 0 1 6 0h-6zm3-4a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm8-6h2v4h-2V6zm0 6h2v4h-2v-4z"></path></g>
+                                <path d="M3 2h16.005C20.107 2 21 2.898 21 3.99v16.02c0 1.099-.893 1.99-1.995 1.99H3V2zm4 2H5v16h2V4zm2 16h10V4H9v16zm2-4a3 3 0 0 1 6 0h-6zm3-4a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm8-6h2v4h-2V6zm0 6h2v4h-2v-4z"></path>
+                                </g>
                             </svg>
                         </span>
                         Contacto
+                    </div>
+                    <div
+                        className={`w-full h-20 rounded-[10px] cursor-pointer font-poppins font-medium mx-2.5 text-xtiny text-[#A6A6A6] justify-center flex flex-col items-center transition-all duration-300 ease-in-out hover:text-white bg-[#212425]  hover:bg-gradient-to-r from-[#FA5252] to-[#DD2476] lg:text-white ${activeNavItem === 'compartir' ? "bg-gradient-to-r from-[#FA5252] to-[#DD2476]" : ""} `}
+                        onClick={() => handleQRItemClick()}>
+                        <span className="text-xl mb-1">
+                            <svg fill="currentColor" height="1em" width="1em" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M3 9h6V3H3zm1-5h4v4H4zm1 1h2v2H5zm10 4h6V3h-6zm1-5h4v4h-4zm1 1h2v2h-2zM3 21h6v-6H3zm1-5h4v4H4zm1 1h2v2H5zm15 2h1v2h-2v-3h1zm0-3h1v1h-1zm0-1v1h-1v-1zm-10 2h1v4h-1v-4zm-4-7v2H4v-1H3v-1h3zm4-3h1v1h-1zm3-3v2h-1V3h2v1zm-3 0h1v1h-1zm10 8h1v2h-2v-1h1zm-1-2v1h-2v2h-2v-1h1v-2h3zm-7 4h-1v-1h-1v-1h2v2zm6 2h1v1h-1zm2-5v1h-1v-1zm-9 3v1h-1v-1zm6 5h1v2h-2v-2zm-3 0h1v1h-1v1h-2v-1h1v-1zm0-1v-1h2v1zm0-5h1v3h-1v1h-1v1h-1v-2h-1v-1h3v-1h-1v-1zm-9 0v1H4v-1zm12 4h-1v-1h1zm1-2h-2v-1h2zM8 10h1v1H8v1h1v2H8v-1H7v1H6v-2h1v-2zm3 0V8h3v3h-2v-1h1V9h-1v1zm0-4h1v1h-1zm-1 4h1v1h-1zm3-3V6h1v1z" />
+                                <path fill="none" d="M0 0h24v24H0z" />
+                            </svg>
+                        </span>
+                        Compartir
                     </div>
 
                 </ul>

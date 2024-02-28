@@ -1,12 +1,18 @@
 import React from 'react';
+interface Props {
+    handleQrModal: any
+}
 
-
-const Heder = () => {
+const Header = ({ handleQrModal }: Props) => {
     const [activeMenuBnt, setActiveMenuBnt] = React.useState<boolean>(false);
     const [activeNavItem, setActiveNavItem] = React.useState<string>('');
     const handleNavItemClick = (itemName: string) => {
         setActiveNavItem(itemName);
     };
+    const handleQRItemClick = () => {
+        handleQrModal()
+        setActiveMenuBnt(false)
+    }
     return (
         <div className="container w-full bg-[#111111] lg:bg-transparent lg:dark:bg-transparent flex justify-between py-5 lg:hidden">
             <div className="w-full flex justify-between px-4">
@@ -100,6 +106,19 @@ const Heder = () => {
                                     Contacto
                                 </a>
                             </li>
+                            <li className="mb-1">
+                                <div
+                                    className={`rounded-md  cursor-pointer font-poppins bg-[#111111] font-medium mx-2.5 flex text-xtiny py-2.5 px-2 md:px-4 xl:px-5 items-center transition-all duration-300 ease-in-out dark:hover:text-white hover:text-white hover:bg-gradient-to-r from-[#FA5252] to-[#DD2476] text-[#A6A6A6] ${activeNavItem === 'contact' ? "bg-gradient-to-r from-[#FA5252] to-[#DD2476]" : ""} `}
+                                    onClick={() => handleQRItemClick()}>
+                                    <span className="mr-2 text-xl">
+                                        <svg fill="currentColor" height="1em" width="1em" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M3 9h6V3H3zm1-5h4v4H4zm1 1h2v2H5zm10 4h6V3h-6zm1-5h4v4h-4zm1 1h2v2h-2zM3 21h6v-6H3zm1-5h4v4H4zm1 1h2v2H5zm15 2h1v2h-2v-3h1zm0-3h1v1h-1zm0-1v1h-1v-1zm-10 2h1v4h-1v-4zm-4-7v2H4v-1H3v-1h3zm4-3h1v1h-1zm3-3v2h-1V3h2v1zm-3 0h1v1h-1zm10 8h1v2h-2v-1h1zm-1-2v1h-2v2h-2v-1h1v-2h3zm-7 4h-1v-1h-1v-1h2v2zm6 2h1v1h-1zm2-5v1h-1v-1zm-9 3v1h-1v-1zm6 5h1v2h-2v-2zm-3 0h1v1h-1v1h-2v-1h1v-1zm0-1v-1h2v1zm0-5h1v3h-1v1h-1v1h-1v-2h-1v-1h3v-1h-1v-1zm-9 0v1H4v-1zm12 4h-1v-1h1zm1-2h-2v-1h2zM8 10h1v1H8v1h1v2H8v-1H7v1H6v-2h1v-2zm3 0V8h3v3h-2v-1h1V9h-1v1zm0-4h1v1h-1zm-1 4h1v1h-1zm3-3V6h1v1z" />
+                                            <path fill="none" d="M0 0h24v24H0z" />
+                                        </svg>
+                                    </span>
+                                    Compartir
+                                </div>
+                            </li>
 
                         </ul>
                     </nav> :
@@ -109,4 +128,4 @@ const Heder = () => {
     )
 }
 
-export default Heder
+export default Header

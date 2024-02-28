@@ -31,23 +31,15 @@ const AboutMe = ({ user }: Props) => {
                         height="400"
                         decoding="async"
                         data-nimg="1"
-                        className="w-full md:w-[330px] md:h-[400px] object-cover overflow-hidden rounded-[35px] mb-3 md:mb-0"
-                        loading="lazy"
-                        style={{ color: "transparent" }}
-                    />
+                        className="w-full md:w-[330px] md:h-[400px] object-cover overflow-hidden rounded-[35px] mb-3 md:mb-0" loading="lazy" style={{ color: "transparent" }} />
                 </div>
                 <div className="col-span-12 md:col-span-8 ">
                     <div className=" md:mr-12 xl:mr-16">
-                        <h3 className="ff-poppins text-2xl md:text-4xl  font-medium mb-2.5">
-                            ¿Quien soy?
-                        </h3>
+                        <h3 className="ff-poppins text-2xl md:text-4xl  font-medium mb-2.5">¿Quien soy?</h3>
                         {
-                            dividirEnParrafos(user.histoy).map((frase: string, index:number) => {
+                            dividirEnParrafos(user.histoy).map((frase: string) => {
                                 return (
-                                    <p 
-                                    key={`frase-divide${index}`}
-                                    className="text-gray-lite leading-7 pb-2"
-                                    >
+                                    <p className="text-gray-lite leading-7 pb-2">
                                         {frase}
                                     </p>
                                 )
@@ -56,9 +48,7 @@ const AboutMe = ({ user }: Props) => {
 
                     </div>
                     <div>
-                        <h3 className="ff-poppins text-2xl md:text-4xl font-medium my-5 ">
-                            Información Personal
-                        </h3>
+                        <h3 className="ff-poppins text-2xl md:text-4xl font-medium my-5 ">Información Personal</h3>
                         <div className=" grid grid-cols-1 sm:grid-cols-2 gap-6">
                             <div className="flex">
                                 <span className="text-oriange shadow-icon mr-2.5 flex items-center justify-center rounded-md text-2xl w-12 text-">
@@ -69,12 +59,7 @@ const AboutMe = ({ user }: Props) => {
                                 <div className="space-y-1">
                                     <p className="text-xs text-gray-lite ">Teléfono</p>
                                     <h6 className="ff-poppins font-medium ">
-                                        <a
-                                            className="hover:text-[#FA5252] duration-300 transition"
-                                            href="tel:+1234567890"
-                                        >
-                                            {user.personalPhone}
-                                        </a>
+                                        <a className="hover:text-[#FA5252] duration-300 transition" href="tel:+1234567890">{user.personalPhone}</a>
                                     </h6>
                                 </div>
                             </div>
