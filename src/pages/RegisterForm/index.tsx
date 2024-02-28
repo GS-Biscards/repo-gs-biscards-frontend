@@ -58,20 +58,13 @@ export default function RegisterFormPage() {
   const {
     register,
     handleSubmit,
-    formState: { errors },
-<<<<<<< HEAD
-    watch,
-=======
->>>>>>> e12205cd54513efcbf175ffcfc91f031d2399da0
+    formState: { errors }
   } = useForm();
 
   const onSubmit = (data: any) => {
     console.log(data);
-<<<<<<< HEAD
-    // You can perform further actions with the form data here
-=======
->>>>>>> e12205cd54513efcbf175ffcfc91f031d2399da0
   };
+  
   return (
     <div>
       <div className="container mx-auto">

@@ -8,6 +8,7 @@ import { getUserId } from '@/services/user.services';
 const UserId = ({ params }: any) => {
   const [isLoading, setIsLoading] = React.useState<boolean>(true);
   const [user, setUser] = React.useState<User | null>(null);
+  
   React.useEffect(() => {
     const loadUser = async () => {
       setIsLoading(true);
