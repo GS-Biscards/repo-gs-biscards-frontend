@@ -19,7 +19,7 @@ const QRModal = ({ showModal, qrcode, close }: Props) => {
               <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
                 {/*header*/}
                 <div className="flex items-start justify-between p-5 border-b border-solid border-blueGray-200 rounded-t">
-                  <h2 className="text-3xl md:text-4xl font-medium mb-2.5 text-black">
+                  <h2 className="text-2xl md:text-3xl font-medium mb-2.5 text-black">
                     Compartir
                   </h2>
                   <button
