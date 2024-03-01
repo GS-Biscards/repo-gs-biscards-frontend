@@ -18,17 +18,16 @@ const Navbar = ({ handleQrModal }: Props) => {
                                 className="ff-roboto-slab text-3xl font-semibold"
                                 href="/"
                             >
-                                GuilSoft
-                                {/* <img
+                                
+                                <img
                                     alt="logo"
-                                    src=""
+                                    src="asset/icons/logo-guilsoft-text.png"
                                     width="153"
                                     height="26"
                                     decoding="async"
                                     data-nimg="1"
-                                    className="h-[28px] lg:h-[32px]"
                                     style={{ color: 'transparent' }}
-                                /> */}
+                                />
                             </a>
                             <div className="flex items-center">
                                 {

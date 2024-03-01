@@ -42,7 +42,7 @@ const NavBar = ({ onHandleChange, handleQrModal}: Props) => {
                                 <path d="M307.4,174.9c-18.8,0-34.1,15.3-34.1,34.1c0,18.8,15.3,34.1,34.1,34.1c18.8,0,34.1-15.3,34.1-34.1     C341.5,190.2,326.2,174.9,307.4,174.9z" />
                             </svg>
                         </span>
-                        Gallería
+                        Galería
                     </div>
                     <div
                         className={`w-full h-20 rounded-[10px] cursor-pointer font-poppins font-medium mx-2.5 text-xtiny text-[#A6A6A6] justify-center flex flex-col items-center transition-all duration-300 ease-in-out hover:text-white bg-[#212425]  hover:bg-gradient-to-r from-[#FA5252] to-[#DD2476] lg:text-white ${activeNavItem === 'contact' ? "bg-gradient-to-r from-[#FA5252] to-[#DD2476]" : ""} `}

@@ -19,17 +19,15 @@ const Header = ({ handleQrModal }: Props) => {
                 <a
                     className="text-3xl font-semibold text-white"
                     href="/">
-                    GuilSoft
-                    {/* <img
+                    <img
                                     alt="logo"
-                                    src=""
+                                    src="asset/icons/logo-guilsoft-text.png"
                                     width="153"
                                     height="26"
                                     decoding="async"
                                     data-nimg="1"
-                                    className="h-[28px] lg:h-[32px]"
                                     style={{ color: 'transparent' }}
-                                /> */}
+                                /> 
                 </a>
                 <div className="flex items-center">
 
@@ -89,7 +87,7 @@ const Header = ({ handleQrModal }: Props) => {
                                             <path d="M307.4,174.9c-18.8,0-34.1,15.3-34.1,34.1c0,18.8,15.3,34.1,34.1,34.1c18.8,0,34.1-15.3,34.1-34.1     C341.5,190.2,326.2,174.9,307.4,174.9z" />
                                         </svg>
                                     </span>
-                                    Gallería
+                                    Galería
                                 </a>
                             </li>
                             <li className="mb-1">

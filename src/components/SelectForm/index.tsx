@@ -36,7 +36,7 @@ const SelectForm = ({ id, register, errors, fieldName, label, placeholder, data 
                 {
                     data.map((item: any, index: number) => {
                         return (
-                            <option value={item.value}>{item.title}</option>
+                            <option key={`select-form-option-${index}`} value={item.value}>{item.title}</option>
                         )
                     })
                 }
