@@ -6,27 +6,29 @@ interface Props {
   register: any,
   errors: any,
   fieldName: string,
-  label: string,
-  placeholder: string
+  label?: string,
+  placeholder?: string,
+  required?: boolean
 }
 
-const InputForm = ({ id, register, errors, fieldName, label, placeholder }: Props) => {
+const InputForm = ({ id, register, errors, fieldName, label, placeholder, required, rules}: Props) => {
   return (
-    <div className='flex flex-col'>
-      <label className="ff-roboto block">
+    <div className='flex flex-col w-full'>
+      <label className="ff-lato block">
         {label}
       </label>
       <input
         id={id}
-        {...register(`${fieldName}`, { required: true })}
-        className={`ff-roboto shadow-md rounded-lg opacity-100 p-2 w-full text-md placeholder:text-gray-400 border-0 border-[1px] border-[#D8D5D5] appearance-none focus:border-[2px] dark:border-[##D8D5D5] dark:focus:border-[#203F51] focus:outline-none focus:ring-0 focus:border-[#203F51] peer ${errors[fieldName] === undefined ? "" : "border-red-500"}`}
+        {...register(`${fieldName}`, { 
+          required: required !== undefined ? required : false , rules})}
+        className={`h-[60px] w-full rounded-lg shadow-md px-4 border border-[#D8D5D5] ff-lato text-md opacity-100  placeholder:text-gray-400  appearance-none focus:border  focus:outline-none focus:border-[#203F51] peer ${errors[fieldName] === undefined ? "" : "border-red-500"}`}
         placeholder={placeholder}
         required=""
       />
       <div className='h-6 p-0 m-0'>
-      {errors[fieldName] &&
-        <span className="ff-roboto text-red-500 text-xs">
-          This field is required
+      {errors && errors[fieldName] &&
+        <span className="ff-lato text-red-500 text-xs">
+          El valor no es permitido
         </span>
       }
       </div>
