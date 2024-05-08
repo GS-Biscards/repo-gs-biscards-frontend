@@ -4,6 +4,7 @@ import DefaultTemplate from '@/templates/DefaultTemplate';
 import BusinessTemplate from '@/templates/BusinessTemplae';
 import CurriculumTemplate from '@/components/CurriculumTemplate';
 import SimpleTemplate from '@/components/SimpleTemplate';
+import FolioxTemplate from '@/templates/FolioxTemplate';
 
 interface Props {
     user: User;
@@ -20,6 +21,7 @@ const UserPage = ({ user }: Props) => {
                 break;
             case 'CurriculumTemplate':
                 TemplateComponent = CurriculumTemplate;
+                /* TemplateComponent = FolioxTemplate; */
                 break;
             case 'SimpleTemplate':
                 TemplateComponent = SimpleTemplate;
