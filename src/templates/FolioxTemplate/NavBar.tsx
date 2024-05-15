@@ -15,44 +15,44 @@ const NavBar = ({ onHandleChange, handleQrModal }: Props) => {
     handleQrModal();
   };
   return (
-    <header className="fixed top-0 left-0 right-0 z-[10] py-[45px] px-0 transition-all ease-in-out duration-300">
-      <nav className="max-w-[1400px] w-full mx-auto h-auto py-0 px-[40px] relative clear-both">
+    <header className="fixed top-0 left-0 right-0 z-10 py-11 px-0 transition-all duration-300">
+      <nav className="container-foliox max-w-52 w-full mx-auto h-auto py-0 px-10 relative clear-both">
         <div className="w-full flex items-center justify-between">
-          <div>
-						<a href="#home"><img className="max-w-[200px] max-h-[80px] transition-all ease-in-out duration-300" src="" alt="" /></a>
+          <div className="logo">
+						<a href="#home"><img className="max-w-52 max-h-20 transition-all duration-300" src="" alt="" /></a>
 					</div>
           <div className="flex items-center">
             <div>
               <ul className="flex items-center">
-                <li className="mr-40px">
+                <li>
                   <div
-                    className={`text-white font-poppins transition-all ease-in-out duration-300 hover:text-extra-color${
+                    className={`cursor-pointer text-white ff-poppins transition-all duration-300 hover:text-extra-color ${
                       activeNavItem === "about-me"
-                        ? "bg-gradient-to-r from-[#FA5252] to-[#DD2476]"
+                        ? "text-extra-color"
                         : ""
                     } `}
                     onClick={() => handleNavItemClick("home")}
                   >
-                    <p className="text-white font-poppins transition-all ease-in-out duration-300 hover:text-extra-color">Inicio</p>
+                    <a href="#home">Inicio</a>
                   </div>
                 </li>
-                <li className="mr-40px">
+                <li>
                   <div
-                    className={`text-white font-poppins transition-all ease-in-out duration-300 hover:text-extra-color${
+                    className={`cursor-pointer text-white ff-poppins transition-all duration-300 hover:text-extra-color ${
                       activeNavItem === "about-me"
-                        ? "bg-gradient-to-r from-[#FA5252] to-[#DD2476]"
+                        ? "text-extra-color"
                         : ""
                     } `}
                     onClick={() => handleNavItemClick("about-me")}
                   >
-                    Sobre Mí
+                    <a href="#about">Sombre mí</a>
                   </div>
                 </li>
-                <li className="mr-40px">
+                <li>
                   <div
-                    className={`text-white font-poppins transition-all ease-in-out duration-300 hover:text-extra-color ${
+                    className={`cursor-pointer text-white ff-poppins transition-all duration-300 hover:text-extra-color ${
                       activeNavItem === "gallery"
-                        ? "bg-gradient-to-r from-[#FA5252] to-[#DD2476]"
+                        ? "text-extra-color"
                         : ""
                     } `}
                     onClick={() => handleNavItemClick("gallery")}
@@ -60,23 +60,23 @@ const NavBar = ({ onHandleChange, handleQrModal }: Props) => {
                     Galería
                   </div>
                 </li>
-                <li className="mr-40px">
+                <li>
                   <div
-                    className={`text-white font-poppins transition-all ease-in-out duration-300 hover:text-extra-color${
+                    className={`cursor-pointer text-white ff-poppins transition-all duration-300 hover:text-extra-color${
                       activeNavItem === "contact"
-                        ? "bg-gradient-to-r from-[#FA5252] to-[#DD2476]"
+                        ? "text-extra-color"
                         : ""
                     } `}
                     onClick={() => handleNavItemClick("contact")}
                   >
-                    Contacto
+                    <a href="#contact">Contacto</a>
                   </div>
                 </li>
-                <li className="mr-40px">
+                <li>
                   <div
-                    className={`text-white font-poppins transition-all ease-in-out duration-300 hover:text-extra-color ${
+                    className={`cursor-pointer text-white ff-poppins transition-all duration-300 hover:text-extra-color${
                       activeNavItem === "compartir"
-                        ? "bg-gradient-to-r from-[#FA5252] to-[#DD2476]"
+                        ? "text-extra-color"
                         : ""
                     } `}
                     onClick={() => handleQRItemClick()}
@@ -85,7 +85,6 @@ const NavBar = ({ onHandleChange, handleQrModal }: Props) => {
                   </div>
                 </li>
               </ul>
-
             </div>
           </div>
         </div>

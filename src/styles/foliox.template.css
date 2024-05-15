@@ -1,0 +1,1019 @@
+:root {
+  --main-color: #b4afc6;
+   --extra-color: rgb(0, 192, 255);
+}
+h1,h2,h3,h4,h5,h6 {
+  font-weight: 600;
+  line-height: 1.3;
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+p {
+  color: #b4afc6;
+}
+h1 {
+  font-size: 45px;
+}
+
+h2 {
+  font-size: 36px;
+}
+
+h3 {
+  font-size: 30px;
+}
+
+h4 {
+  font-size: 24px;
+}
+
+h5 {
+  font-size: 20px;
+}
+
+h6 {
+  font-size: 16px;
+}
+.foliox_tm_all_wrap, .foliox_tm_all_wrap * {
+  box-sizing: border-box;
+}
+button{
+  cursor: pointer;
+}
+:disabled {
+    cursor: default;
+}
+
+ul,li {
+    margin: 0px;
+    padding: 0px;
+}
+
+li{
+    margin-right: 40px;
+}
+
+ul {
+    list-style-type: none;
+}
+  
+a {
+    text-decoration-line: none;
+}
+  
+.container-foliox {
+    width: 100%;
+    position: relative;
+    clear: both;
+    margin-left: auto;
+    margin-right: auto;
+    height: auto;
+    max-width: 1400px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    padding-left: 40px;
+    padding-right: 40px;
+}
+.ff-opensans {
+    font-family: var(--font-opensans);
+}
+.text-extra-color {
+    color: var(--extra-color);
+}
+
+.font-medium {
+    font-weight: 500;
+}
+  
+.font-normal {
+    font-weight: 400;
+}
+  
+.font-semibold {
+    font-weight: 600;
+}
+  
+.font-bold {
+    font-weight: 700;
+}
+.bg-foliox {
+    background-image: url(/asset/images/bg-ft.jpg)
+}
+.social::before{
+    position:absolute;
+    content:"|";
+    left:-30px;
+    top:-2px
+}
+.transition-all {
+    transition-property: all;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 150ms;
+}
+
+.foliox_tm_hero .name {
+    margin-bottom: 14px;
+    font-size: 75px;
+}
+
+.foliox_tm_hero .\!name {
+    margin-bottom: 14px;
+    font-size: 75px;
+}
+
+.foliox_tm_hero .job {
+    margin-bottom: 35px;
+    font-size: 20px;
+}
+
+.foliox_tm_hero .right img {
+    max-height: 400px;
+    max-width: 400px;
+}
+.foliox_tm_button{
+    width:100%;
+    height:auto;
+    clear:both;
+    float:left
+}
+.foliox_tm_button a{
+  font-family:var(--ff-poppins);
+  color:#fff;
+  display:inline-block;
+  background-color:var(--extra-color);
+  padding:18px 43px;
+  border-radius:50px;
+  overflow:hidden;
+  position: relative;  
+}
+.foliox_tm_button a span{
+  position:relative;
+  z-index:2;
+  -webkit-transition:all .3s ease;
+  -moz-transition:all .3s ease;
+  -ms-transition:all .3s ease;
+  -o-transition:all .3s ease;
+  transition:all .3s ease;
+}
+.foliox_tm_button a:before{
+  position:absolute;
+  content:"";
+  left:-10px;
+  right:-10px;
+  bottom:-10px;
+  top:-10px;
+  background-color:#fff;
+  transform:translateY(100%);
+  -webkit-transition:all .3s ease;
+  -moz-transition:all .3s ease;
+  -ms-transition:all .3s ease;
+  -o-transition:all .3s ease;
+  transition:all .3s ease
+}
+.foliox_tm_button a:hover:before{
+  transform:translateY(0)
+}
+.foliox_tm_button a:hover span{
+  color:#000
+}
+.foliox_tm_about .foliox_tm_button a{
+  padding:13px 43px
+}
+.foliox_tm_about .experience .inner:before{
+  width:8px;
+  height:50px;
+  position:absolute;
+  content:"";
+  background-color:var(--extra-color);
+  left:0
+}
+.foliox_tm_about .right .list>ul{
+  min-width:calc(100% + 12px)
+}
+.foliox_tm_contact input{
+  width:100%;
+  height:58px;
+  padding:0 30px;
+  background-color:transparent;
+  border:1px solid rgba(255,255,255,.3);
+  border-radius:8px;
+  color:var(--main-color);
+  font-size:18px
+}
+.foliox_tm_contact input:focus{
+  background-color:transparent;
+  outline:none;
+  border-color:rgba(255,255,255,.5)
+}
+input::-webkit-outer-spin-button,input::-webkit-inner-spin-button{
+  -webkit-appearance:none;
+  margin:0
+}
+input[type=number]{
+  -moz-appearance:textfield
+}
+.foliox_tm_contact .message_area textarea{
+  width:100%;
+  height:200px;
+  padding:16px 30px 30px 30px!important;
+  background-color:transparent;
+  border:1px solid rgba(255,255,255,.3);
+  border-radius:8px;
+  color:var(--main-color);
+  font-size:18px
+}
+.foliox_tm_contact .message_area textarea:focus{
+  background-color:transparent;
+  outline:none;
+  border-color:rgba(255,255,255,.5)
+}
+.foliox_tm_contact .empty_notice{
+  color:#F52225;
+  margin-bottom:7px;
+  display:none;
+  text-align:left;
+  font-weight:500
+}
+.foliox_tm_contact .contact_error{
+  color:#F52225;
+  text-align:left;
+  font-weight:500
+}
+.foliox_tm_contact .returnmessage{
+  color:#3A00FF;
+  margin-bottom:7px;
+  text-align:left;
+  font-weight:500
+}
+.tilt-effect{
+    perspective: 1000px;
+    transform-style: preserve-3d;
+    transition: transform 0.5s cubic-bezier(.03,.98,.52,.99);
+}
+.tilt-effect:hover {
+  will-change: transform; 
+  transform: perspective(300px) rotateX(-5deg) rotateY(5deg);
+}
+
+@media (max-width: 1600px) {
+    .container-foliox {
+      max-width: 1070px;
+      padding-top: 0px;
+      padding-bottom: 0px;
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+  
+    body {
+      font-size: 16px;
+    }
+  
+    .foliox_tm_hero .name {
+      margin-bottom: 14px;
+      font-size: 75px;
+    }
+  
+    .foliox_tm_hero .\!name {
+      margin-bottom: 14px;
+      font-size: 75px;
+    }
+  
+    .foliox_tm_hero .job {
+      margin-bottom: 35px;
+      font-size: 20px;
+    }
+  
+    .foliox_tm_hero .right img {
+      max-height: 400px;
+      max-width: 400px;
+    }
+  
+    .foliox_tm_features .list ul li .title {
+      font-size: 21px;
+    }
+  
+    .foliox_tm_features .\!list ul li .title {
+      font-size: 21px;
+    }
+  
+    .foliox_tm_main_title h3 {
+      font-size: 40px;
+    }
+  
+    .foliox_tm_about .big_image img {
+      max-width: 380px;
+    }
+  
+    .foliox_tm_about .small_image {
+      margin-right: -145px;
+    }
+  
+    .foliox_tm_about .small_image .in img {
+      min-width: 280px;
+      max-width: 280px;
+    }
+  
+    .foliox_tm_about .experience .inner h3 {
+      font-size: 45px;
+    }
+  
+    .foliox_tm_about .experience .inner span {
+      padding-left: 14px;
+      font-size: 16px;
+      line-height: 20px;
+    }
+  
+    .foliox_tm_about .experience .inner {
+      padding-left: 22px;
+    }
+  
+    .foliox_tm_about .experience {
+      left: 165px;
+      margin-top: 20px;
+    }
+  
+    .foliox_tm_about .badge {
+      top: 105px;
+      height: 90px;
+      width: 90px;
+    }
+  
+    .foliox_tm_about .badge .svg {
+      height: 45px;
+      width: 45px;
+    }
+  
+    .foliox_tm_about .right {
+      top: 15px;
+      padding-left: 50px;
+    }
+  
+    .foliox_tm_about .right .item li {
+      margin-bottom: 7px;
+    }
+  
+    .foliox_tm_about .right .\!item li {
+      margin-bottom: 7px;
+    }
+  
+    .foliox_tm_about .right .title {
+      margin-bottom: 20px;
+    }
+  
+    .foliox_tm_counter .counter_list ul li h3 {
+      font-size: 55px;
+    }
+  
+    .foliox_tm_counter .counter_list ul li .title {
+      padding-left: 18px;
+      font-size: 16px;
+      line-height: 24px;
+    }
+  
+    .foliox_tm_counter .counter_list ul li .list_inner {
+      padding-top: 50px;
+      padding-left: 70px;
+      padding-right: 70px;
+      padding-bottom: 40px;
+    }
+  
+    .foliox_tm_services .list ul li .title {
+      font-size: 21px;
+    }
+  
+    .foliox_tm_services .\!list ul li .title {
+      font-size: 21px;
+    }
+  
+    .foliox_tm_services .list ul li .icon {
+      margin-bottom: 35px;
+    }
+  
+    .foliox_tm_services .\!list ul li .icon {
+      margin-bottom: 35px;
+    }
+  
+    .foliox_tm_services .list ul li .list_inner {
+      padding-left: 30px;
+      padding-right: 30px;
+      padding-top: 95px;
+      padding-bottom: 60px;
+    }
+  
+    .foliox_tm_services .\!list ul li .list_inner {
+      padding-left: 30px;
+      padding-right: 30px;
+      padding-top: 95px;
+      padding-bottom: 60px;
+    }
+  
+    .foliox_tm_testimonials .text p {
+      font-size: 27px;
+    }
+  
+    .foliox_tm_news .news_list ul li .title a {
+      font-size: 19px;
+    }
+  
+    .foliox_tm_contact .left .short h3 {
+      margin-bottom: 1px;
+      font-size: 28px;
+    }
+  
+    .foliox_tm_subscribe .subtitle {
+      font-size: 19px;
+    }
+  
+    .foliox_tm_subscribe .title {
+      margin-bottom: 5px;
+      font-size: 38px;
+    }
+  
+    .foliox_tm_subscribe .field input[type="text"] {
+      font-size: 16px;
+    }
+  
+    .foliox_tm_subscribe .\!field input[type="text"] {
+      font-size: 16px;
+    }
+  
+    .foliox_tm_subscribe .field input[type="submit"] {
+      font-size: 16px;
+    }
+  
+    .foliox_tm_subscribe .\!field input[type="submit"] {
+      font-size: 16px;
+    }
+  
+    .foliox_tm_copyright {
+      padding-top: 80px;
+      padding-bottom: 80px;
+      padding-left: 0px;
+      padding-right: 0px;
+    }
+  }
+  
+  /***** Middle ****/
+  
+  @media (max-width: 1200px) {
+    .foliox_tm_modalbox .box_inner {
+      width: 500px;
+    }
+  
+    .foliox_tm_modalbox .description_wrap {
+      padding: 35px;
+    }
+  
+    .foliox_tm_modalbox .description_wrap:before {
+      height: 35px;
+    }
+  
+    .foliox_tm_modalbox .description_wrap:after {
+      height: 35px;
+    }
+  
+    .foliox_tm_modalbox .main_details {
+      flex-direction: column;
+      align-items: baseline;
+    }
+  
+    .foliox_tm_modalbox .main_details .textbox {
+      margin-bottom: 40px;
+      width: 100%;
+      padding: 0px;
+    }
+  
+    .foliox_tm_modalbox .main_details .detailbox {
+      width: 100%;
+      padding: 0px;
+    }
+  
+    .foliox_tm_modalbox .additional_images ul {
+      margin: 0px;
+    }
+  
+    .foliox_tm_modalbox .additional_images ul li {
+      width: 100%;
+      padding: 0px;
+    }
+  
+    .foliox_tm_modalbox .popup_details .top_image {
+      margin-bottom: 25px;
+    }
+  
+    .foliox_tm_modalbox .news_popup_informations .image {
+      margin-bottom: 25px;
+    }
+  }
+  
+  /***** Small ****/
+  
+  @media (max-width: 1040px) {
+    .foliox_tm_hero .content {
+      flex-direction: column-reverse;
+      justify-content: center;
+      text-align: center;
+    }
+  
+    .foliox_tm_hero .right {
+      margin-bottom: 30px;
+      width: 100%;
+      padding-left: 0px;
+    }
+  
+    .foliox_tm_hero .right img {
+      display: inline-block;
+      max-height: 200px;
+      max-width: 200px;
+    }
+  
+    .foliox_tm_hero .left {
+      width: 100%;
+    }
+  
+    .foliox_tm_hero .name {
+      margin-bottom: 12px;
+      font-size: 65px;
+    }
+  
+    .foliox_tm_hero .\!name {
+      margin-bottom: 12px;
+      font-size: 65px;
+    }
+  
+    .foliox_tm_hero .job {
+      margin-bottom: 35px;
+      font-size: 19px;
+    }
+  
+    .foliox_tm_button a {
+      padding-top: 13px;
+      padding-bottom: 13px;
+      padding-left: 38px;
+      padding-right: 38px;
+    }
+  
+    .foliox_tm_features .list ul li {
+      width: 50%;
+    }
+  
+    .foliox_tm_features .\!list ul li {
+      width: 50%;
+    }
+  
+    .foliox_tm_main_title span {
+      font-size: 19px;
+    }
+  
+    .foliox_tm_main_title h3 {
+      font-size: 35px;
+    }
+  
+    .foliox_tm_about .wrapper {
+      flex-direction: column;
+    }
+  
+    .foliox_tm_about .left {
+      margin-bottom: 60px;
+      width: 100%;
+    }
+  
+    .foliox_tm_about .right {
+      top: 0px;
+      width: 100%;
+      padding-left: 0px;
+    }
+  
+    .foliox_tm_about .big_image {
+      float: left;
+    }
+  
+    .foliox_tm_about {
+      margin-bottom: 165px;
+    }
+  
+    .foliox_tm_counter .counter_list ul li {
+      width: 33.333333%;
+    }
+  
+    .foliox_tm_skills .list {
+      flex-direction: column;
+    }
+  
+    .foliox_tm_skills .\!list {
+      flex-direction: column;
+    }
+  
+    .foliox_tm_skills .left {
+      margin-bottom: 7px;
+      width: 100%;
+      padding-right: 0px;
+    }
+  
+    .foliox_tm_skills .right {
+      width: 100%;
+      padding: 0px;
+    }
+  
+    .foliox_tm_services .list ul li {
+      width: 50%;
+    }
+  
+    .foliox_tm_services .\!list ul li {
+      width: 50%;
+    }
+  
+    .foliox_tm_resume .wrapper {
+      flex-direction: column;
+    }
+  
+    .foliox_tm_resume .left {
+      margin-bottom: 70px;
+      width: 100%;
+      padding: 0px;
+    }
+  
+    .foliox_tm_resume .right {
+      width: 100%;
+      padding: 0px;
+    }
+  
+    .foliox_tm_portfolio .portfolio_list ul li {
+      width: 50%;
+    }
+  
+    .foliox_tm_testimonials .text p {
+      font-size: 27px;
+    }
+  
+    .foliox_tm_news .news_list ul li {
+      width: 50%;
+    }
+  
+    .foliox_tm_contact .contact_inner {
+      flex-direction: column;
+    }
+  
+    .foliox_tm_contact .left {
+      margin-bottom: 50px;
+      width: 100%;
+    }
+  
+    .foliox_tm_contact .right {
+      width: 100%;
+    }
+  
+    .foliox_tm_subscribe .inner {
+      flex-direction: column;
+      align-items: baseline;
+      padding-left: 30px;
+      padding-right: 30px;
+    }
+  
+    .foliox_tm_subscribe .left {
+      margin-bottom: 40px;
+      width: 100%;
+      padding-right: 0px;
+    }
+  
+    .foliox_tm_subscribe .right {
+      width: 100%;
+      padding-left: 0px;
+    }
+  
+    .foliox_tm_subscribe .subtitle {
+      font-size: 19px;
+    }
+  
+    .foliox_tm_subscribe .title {
+      font-size: 36px;
+    }
+  
+    .foliox_tm_subscribe .field input[type="submit"] {
+      font-size: 16px;
+    }
+  
+    .foliox_tm_subscribe .\!field input[type="submit"] {
+      font-size: 16px;
+    }
+  
+    .foliox_tm_subscribe .field input[type="text"] {
+      font-size: 16px;
+    }
+  
+    .foliox_tm_subscribe .\!field input[type="text"] {
+      font-size: 16px;
+    }
+  }
+  
+  /***** Tablet ****/
+  
+  @media (max-width: 768px) {
+    .foliox_tm_hero .name {
+      margin-bottom: 8px;
+      font-size: 50px;
+    }
+  
+    .foliox_tm_hero .\!name {
+      margin-bottom: 8px;
+      font-size: 50px;
+    }
+  
+    .foliox_tm_hero .job {
+      font-size: 17px;
+    }
+  
+    .foliox_tm_features .list ul {
+      margin-left: 0px;
+    }
+  
+    .foliox_tm_features .\!list ul {
+      margin-left: 0px;
+    }
+  
+    .foliox_tm_features .list ul li {
+      width: 100%;
+      padding-left: 0px;
+    }
+  
+    .foliox_tm_features .\!list ul li {
+      width: 100%;
+      padding-left: 0px;
+    }
+  
+    .foliox_tm_features .list ul li .list_inner {
+      padding: 40px;
+    }
+  
+    .foliox_tm_features .\!list ul li .list_inner {
+      padding: 40px;
+    }
+  
+    .foliox_tm_features .list ul li .svg {
+      margin-bottom: 25px;
+      height: 55px;
+      width: 55px;
+    }
+  
+    .foliox_tm_features .\!list ul li .svg {
+      margin-bottom: 25px;
+      height: 55px;
+      width: 55px;
+    }
+  
+    .foliox_tm_features .list ul li .title {
+      margin-bottom: 18px;
+    }
+  
+    .foliox_tm_features .\!list ul li .title {
+      margin-bottom: 18px;
+    }
+  
+    .foliox_tm_main_title span {
+      font-size: 17px;
+    }
+  
+    .foliox_tm_main_title h3 {
+      font-size: 29px;
+    }
+  
+    .foliox_tm_about .right .list > ul > li {
+      width: 100%;
+      border-width: 0px;
+    }
+  
+    .foliox_tm_about .right .\!list > ul > li {
+      width: 100%;
+      border-width: 0px;
+    }
+  
+    .foliox_tm_about .right .item:first-child {
+      padding-bottom: 0px;
+    }
+  
+    .foliox_tm_about .right .\!item:first-child {
+      padding-bottom: 0px;
+    }
+  
+    .foliox_tm_about .right .list > ul {
+      padding-bottom: 25px;
+    }
+  
+    .foliox_tm_about .right .\!list > ul {
+      padding-bottom: 25px;
+    }
+  
+    .foliox_tm_counter .counter_list ul li {
+      width: 50%;
+    }
+  
+    .foliox_tm_services .list ul {
+      margin: 0px;
+    }
+  
+    .foliox_tm_services .\!list ul {
+      margin: 0px;
+    }
+  
+    .foliox_tm_services .list ul li {
+      width: 100%;
+      padding-left: 0px;
+    }
+  
+    .foliox_tm_services .\!list ul li {
+      width: 100%;
+      padding-left: 0px;
+    }
+  
+    .\!.foliox_tm_services .list ul li .icon .svg {
+      height: 55px;
+      width: 55px;
+    }
+  
+    .foliox_tm_services .list ul li .icon .svg {
+      height: 55px;
+      width: 55px;
+    }
+  
+    .foliox_tm_services .\!list ul li .icon .svg {
+      height: 55px;
+      width: 55px;
+    }
+  
+    .foliox_tm_services .list ul li .icon {
+      margin-bottom: 33px;
+    }
+  
+    .foliox_tm_services .\!list ul li .icon {
+      margin-bottom: 33px;
+    }
+  
+    .resume_list ul li .icon {
+      height: 65px;
+      width: 65px;
+    }
+  
+    .resume_list ul li .icon .svg {
+      height: 30px;
+      width: 30px;
+    }
+  
+    .resume_list ul:before {
+      left: 32.5px;
+    }
+  
+    .resume_list ul li .list_inner {
+      padding-left: 95px;
+    }
+  
+    .resume_list .resume_title h3 {
+      font-size: 22px;
+    }
+  
+    .foliox_tm_resume .title h3 {
+      font-size: 30px;
+    }
+  
+    .foliox_tm_portfolio .portfolio_list ul {
+      margin: 0px;
+    }
+  
+    .foliox_tm_portfolio .portfolio_list ul li {
+      width: 100%;
+      padding-left: 0px;
+    }
+  
+    .foliox_tm_testimonials .text p {
+      font-size: 22px;
+    }
+  
+    .foliox_tm_testimonials .icon .svg {
+      height: 65px;
+      width: 65px;
+    }
+  
+    .foliox_tm_testimonials .detail h3 {
+      font-size: 21px;
+    }
+  
+    .foliox_tm_news .news_list ul {
+      margin: 0px;
+    }
+  
+    .foliox_tm_news .news_list ul li {
+      width: 100%;
+      padding-left: 0px;
+    }
+  
+    .foliox_tm_contact .input_list ul {
+      margin: 0px;
+    }
+  
+    .foliox_tm_contact .input_list ul li {
+      width: 100%;
+      padding-left: 0px;
+    }
+  
+    .foliox_tm_contact .left .icon {
+      height: 70px;
+      width: 70px;
+    }
+  
+    .oliox_tm_contact .left .short h3 {
+      margin-bottom: 1px;
+      font-size: 24px;
+    }
+  
+    .foliox_tm_contact input {
+      font-size: 16px;
+    }
+  
+    .foliox_tm_contact .message_area textare {
+      font-size: 16px;
+    }
+  
+    .foliox_tm_modalbox .box_inner {
+      width: 300px;
+    }
+  
+    .foliox_tm_modalbox .portfolio_main_title h3 {
+      margin-bottom: 2px;
+      font-size: 19px;
+    }
+  
+    .foliox_tm_modalbox .description_wrap {
+      padding: 20px;
+    }
+  
+    .foliox_tm_modalbox .description_wrap:before {
+      height: 20px;
+    }
+  
+    .foliox_tm_modalbox .description_wrap:after {
+      height: 20px;
+    }
+  
+    .foliox_tm_modalbox .close {
+      left: auto;
+      right: 0px;
+      top: -40px;
+      margin-left: 0px;
+    }
+  
+    .foliox_tm_modalbox .close a {
+      height: 30px;
+      width: 30px;
+    }
+  
+    .foliox_tm_modalbox .news_popup_informations .details h3 {
+      font-size: 19px;
+    }
+  
+    .foliox_tm_subscribe .title {
+      font-size: 30px;
+    }
+  }
+  
+  /***** Phone ****/
+  
+  @media (max-width: 480px) {
+    body {
+      font-size: 15px;
+    }
+  
+    .foliox_tm_counter .counter_list ul {
+      margin: 0px;
+    }
+  
+    .foliox_tm_counter .counter_list ul li {
+      width: 100%;
+      padding-left: 0px;
+    }
+  
+    .foliox_tm_subscribe .field input[type="text"] {
+      font-size: 15px;
+    }
+  
+    .foliox_tm_subscribe .\!field input[type="text"] {
+      font-size: 15px;
+    }
+  
+    .foliox_tm_subscribe .field input[type="submit"] {
+      font-size: 15px;
+    }
+  
+    .foliox_tm_subscribe .\!field input[type="submit"] {
+      font-size: 15px;
+    }
+  
+    .foliox_tm_counter .counter_list ul li .list_inner {
+      padding-left: 40px;
+      padding-right: 40px;
+      padding-top: 50px;
+      padding-bottom: 40px;
+    }
+  
+    .foliox_tm_testimonials .text p {
+      font-size: 18px;
+    }
+}
