@@ -10,6 +10,7 @@ import Profile from "./Profile";
 import Image from "next/image";
 import Home from "./Home";
 import Contact from "./Contact";
+import Portfolio from "./Portfolio";
 
 interface Props {
   user?: User;
@@ -52,9 +53,13 @@ const FolioxTemplate = ({ user }: Props) => {
         <div className="foliox_tm_section w-full h-auto clear-both float-left" id="about">
           <Profile user={user} />
         </div>
+        <div className="foliox_tm_section w-full h-auto clear-both float-left" id="portfolio">
+          <Portfolio/>
+        </div>
         <div className="foliox_tm_section w-full h-auto clear-both float-left" id="contact">
           <Contact/>
         </div>
+        
       </div>
       <div className="container">
         <Footer />

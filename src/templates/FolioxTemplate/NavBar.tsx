@@ -57,7 +57,7 @@ const NavBar = ({ onHandleChange, handleQrModal }: Props) => {
                     } `}
                     onClick={() => handleNavItemClick("gallery")}
                   >
-                    Galería
+                    <a href="#portfolio">Galería</a>
                   </div>
                 </li>
                 <li>
