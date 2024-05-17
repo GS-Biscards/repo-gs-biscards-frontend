@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { Arvo, Lato, Poppins, Roboto, Roboto_Slab } from 'next/font/google'
+import { Arvo, Lato, Poppins, Roboto, Roboto_Slab, Montserrat } from 'next/font/google'
 import './globals.css';
 
 const arvo = Arvo({
@@ -32,6 +32,12 @@ const robotoslab = Roboto_Slab({
   display: "swap",
   variable: '--font-robotoslab'
 });
+const montserrat = Montserrat({
+  weight: ["100", "300", "400", "500", "700", "900"],
+  subsets: ["latin"],
+  display: "swap",
+  variable: '--font-montserrat'
+});
 
 export const metadata: Metadata = {
   title: 'GuilSoft',
@@ -46,7 +52,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${arvo.variable} ${lato.variable} ${poppins.variable} ${roboto.variable}  ${robotoslab.variable} `}>
+      <body className={`${arvo.variable} ${lato.variable} ${poppins.variable} ${roboto.variable}  ${robotoslab.variable} ${montserrat.variable} `}>
         {children}
       </body>
     </html>

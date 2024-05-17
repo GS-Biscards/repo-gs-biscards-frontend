@@ -1,0 +1,14 @@
+.bg-search {
+    background-image: url('/asset/icons/search.png');
+    background-position: center; 
+    background-repeat: no-repeat; 
+    background-size: contain;
+    width: 100%;
+    height: auto;
+    max-width: 80%; /* Limita el ancho máximo al 80% del contenedor principal */
+}
+@media (max-width: 600px) {
+    .bg-search {
+        max-width: 90%; /* Ajusta el ancho máximo para pantallas más pequeñas */
+    }
+}
