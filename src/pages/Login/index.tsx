@@ -9,26 +9,20 @@ import Link from "next/link";
 interface FormData {
   email: string;
   password: string;
-  confirmPassword: string;
-  terms: boolean;
+  remember: boolean;
 }
 
-const SignUpFormPage: React.FC = () => {
+const LoginFormPage: React.FC = () => {
   // Define el esquema de validación usando Yup
   const validationSchema = Yup.object().shape({
     email: Yup.string()
-      .email("Formato de correo electrónico inválido")
-      .required("El correo electrónico es obligatorio"),
+      .email("Formato de email inválido")
+      .required("El email es obligatorio"),
     password: Yup.string()
       .min(4, "La contraseña debe tener al menos 4 caracteres")
       .max(15, "La contraseña no debe exceder los 15 caracteres")
       .required("La contraseña es obligatoria"),
-    confirmPassword: Yup.string()
-      .oneOf([Yup.ref('password')], 'Las contraseñas no coinciden')
-      .required('Confirmar contraseña es obligatorio'),
-    terms: Yup.boolean()
-      .oneOf([true], "Debe aceptar los Términos y Condiciones y las Políticas de Privacidad")
-      .required("Debe aceptar los Términos y Condiciones y las Políticas de Privacidad"),
+    remember: Yup.boolean(),
   });
 
   // Inicializa el formulario usando react-hook-form
@@ -37,9 +31,13 @@ const SignUpFormPage: React.FC = () => {
   });
 
   // Maneja el envío del formulario
-  const onSignUp: SubmitHandler<FormData> = (data) => {
-    console.log("datos", data);
-    // Realizar acción de registro aquí
+  const onLogin: SubmitHandler<FormData> = (data) => {
+    console.log("data", data);
+  };
+
+  // Maneja las acciones adicionales
+  const handleForgotPassword = () => {
+    console.log("Se hizo clic en el enlace de olvidó su contraseña");
   };
 
   return (
@@ -56,20 +54,16 @@ const SignUpFormPage: React.FC = () => {
               “SIMPLEMENTE TU PRESENCIA WEB”
             </div>
           </div>
-          <form onSubmit={handleSubmit(onSignUp)} className="flex flex-col w-full max-w-md mx-auto p-8 lg:p-12">
-          <h1 className="text-2xl text-center font-bold text-slate-700 mb-4 ">Bienvenido a  GuilSoft</h1>
-
+          <form onSubmit={handleSubmit(onLogin)} className="ff-roboto-slab  flex flex-col w-full max-w-md mx-auto p-8 lg:p-12">
             <div className="flex flex-col gap-4 w-full text-gray-700">
-              
               <div>
-                <label htmlFor="email" className="block text-sm font-medium">Correo electrónico</label>
+                <label htmlFor="email" className="block text-sm font-medium">Email</label>
                 <input
                   type="email"
                   id="email"
-                  placeholder="Ingresa tu correo electrónico"
+                  placeholder="Ingresa tu email"
                   {...register("email")}
                   className="mt-1 block w-full p-2 border border-gray-300 rounded"
-                  aria-invalid={errors.email ? "true" : "false"}
                 />
                 {errors.email && <span className="text-red-600 text-sm">{errors.email.message}</span>}
               </div>
@@ -81,47 +75,32 @@ const SignUpFormPage: React.FC = () => {
                   placeholder="Ingresa tu contraseña"
                   {...register("password")}
                   className="mt-1 block w-full p-2 border border-gray-300 rounded"
-                  aria-invalid={errors.password ? "true" : "false"}
                 />
                 {errors.password && <span className="text-red-600 text-sm">{errors.password.message}</span>}
               </div>
-              <div>
-                <label htmlFor="confirmPassword" className="block text-sm font-medium">Confirmar contraseña</label>
-                <input
-                  type="password"
-                  id="confirmPassword"
-                  placeholder="Confirma tu contraseña"
-                  {...register("confirmPassword")}
-                  className="mt-1 block w-full p-2 border border-gray-300 rounded"
-                  aria-invalid={errors.confirmPassword ? "true" : "false"}
-                />
-                {errors.confirmPassword && <span className="text-red-600 text-sm">{errors.confirmPassword.message}</span>}
-              </div>
-              <div className="flex items-start w-full gap-2 mt-2">
+              <div className="flex items-baseline w-full gap-2 mt-2">
                 <input
                   type="checkbox"
-                  id="terms"
-                  {...register("terms")}
-                  className="text-center"
+                  id="remember"
+                  {...register("remember")}
+                  className="mr-2"
                 />
-                <label htmlFor="terms" className="text-sm">
-                  He leído y acepto todos los 
-                  <Link href="/terms" className="text-blue-500 hover:underline text-sm" target="_blank" rel="noopener noreferrer">
-                    Términos y Condiciones
-                  </Link> y las 
-                  <Link href="/privacy" className="text-blue-500 hover:underline text-sm" target="_blank" rel="noopener noreferrer">
-                    Políticas de Privacidad
-                  </Link>
-                </label>
+                <label htmlFor="remember" className="text-sm">Recuérdame</label>
+                <Link href="/resetpass-form" legacyBehavior>
+                  <a target="_self" rel="noopener noreferrer" className="text-blue-500 hover:underline text-sm ml-auto">
+                    ¿Olvidaste tu contraseña?
+                  </a>
+                </Link>
               </div>
-              {errors.terms && <span className="text-red-600 text-sm">{errors.terms.message}</span>}
               <button type="submit" className="w-full p-2 bg-slate-800 font-semibold text-white rounded mt-4 hover:bg-slate-500">
-                Registrarse
+                Iniciar sesión
               </button>
               <div className="flex justify-center items-center w-full gap-2 mt-4">
-                ¿Ya tienes una cuenta?
-                <Link href="/login-form" className="text-blue-500 hover:underline text-sm" target="_blank" rel="noopener noreferrer">
-                  Acceso
+                ¿No tienes una cuenta?
+                <Link href="/signup-form" legacyBehavior>
+                  <a target="_self" rel="noopener noreferrer" className="text-blue-500 hover:underline text-sm">
+                    Regístrate
+                  </a>
                 </Link>
               </div>
             </div>
@@ -132,4 +111,4 @@ const SignUpFormPage: React.FC = () => {
   );
 };
 
-export default SignUpFormPage;
+export default LoginFormPage;
