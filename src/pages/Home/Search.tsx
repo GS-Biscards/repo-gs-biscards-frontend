@@ -23,12 +23,13 @@ const Search = ({ setShowSearchSection, toggleSection, slidePrev }: Props) => {
     formState: { errors },
     handleSubmit: handleSearch,
   } = useForm<{
-    searchValue: string;
-  }>({ defaultValues: { searchValue: "" } });
+    name: string, profession:string
+  }>({ defaultValues: { name: "", profession:"" } });
   const [usersFound, setUsersFound] = React.useState<User[]>([]);
   const [loadingUsers, setLoadingUsers] = React.useState<boolean>(false);
 
-  const serchBusinessCards = async (data: { searchValue: string }) => {
+  const serchBusinessCards = async (data: { name: string, profession:string }) => {
+    console.log('datos traidos',data)
     /* try {
       setLoadingUsers(true)
       const users = await searchUsersByValue(data.searchValue);
@@ -46,29 +47,31 @@ const Search = ({ setShowSearchSection, toggleSection, slidePrev }: Props) => {
           Hola, que estás buscando ?
         </p>
         <form onSubmit={handleSearch(serchBusinessCards)} className="w-full">
-          <div className="flex flex-row justify-center gap-x-10 ">
+          <div className="flex flex-row justify-center gap-x-10 w-full">
             <InputForm
               id={"search-field-select-search-value"}
               register={register}
               errors={errors}
-              fieldName={"searchValue"}
+              fieldName={"name"}
               placeholder={"Nombre"}
               icon={''}
-              style={{ width: '15rem', height: '52px', borderRadius: '20px' }}
+              style={{height: '52px', borderRadius: '20px' }}
               required={false}
+              classprop={'w-[30%]'}
             />
             <InputForm
               id={"search-field-select-search-value"}
               register={register}
               errors={errors}
-              fieldName={"searchValue"}
+              fieldName={"profession"}
               placeholder={"Profesión"}
               icon={<MagnifyingGlassIcon className="h-6 w-6 text-gray-400" aria-hidden="true" />}
-              style={{ width: '15rem', height: '52px', borderRadius: '20px'}}
+              style={{height: '52px', borderRadius: '20px'}}
               required={false}
+              classprop={'w-[30%]'}
             />
             <button
-              className="cursor-pointer text-white h-[52px] w-[130px] rounded-[20px] bg-[#203F51] flex justify-center items-center"
+              className="cursor-pointer text-white h-[52px] w-[30%] rounded-[20px] bg-[#203F51] flex justify-center items-center"
               type="submit"
             >
               <MagnifyingGlassIcon className="h-6 w-6 flex-none text-white" aria-hidden="true"/>
