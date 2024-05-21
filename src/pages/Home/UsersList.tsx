@@ -1,30 +1,31 @@
 import React from "react";
-import { User } from "@/models/user.model";
-import { URL_BASE } from "@/config/env.config";
+import { ResUserFree } from "@/models/userFree.model";
 
 interface Props {
-  user?: User;
+  user: ResUserFree;
 }
 
-const UserList = ({ user }: any) => {
+const UserList = ({ user }: Props) => {
   return (
     <div className="w-[263px] h-[317px]  m-4 max-w-md flex flex-col rounded-[60px] bg-white shadow-2xl opacity-100">
       <div className="flex justify-center flex-col m-[15px]">
         <div className="flex justify-center my-[10px]">
           <img
-            /* src={user.accountImg.profileImg} */
-            src="https://st4.depositphotos.com/1049680/22058/i/450/depositphotos_220585526-stock-photo-handsome-young-business-man-grey.jpg"
+            src={user.imageProfile.profileImg}
             className="h-[200px] w-[200px] rounded-[100%]"
             alt=""
           />
         </div>
         <div className="flex flex-col justify-between">
           <div>
-            <h2 className="ff-roboto text-2xl font-semibold text-gray-950 text-center">
+            {/* <h2 className="ff-roboto text-2xl font-semibold text-gray-950 text-center">
               {user?.firstName + " " + user?.lastName}
+            </h2> */}
+            <h2 className="ff-roboto text-2xl font-semibold text-gray-950 text-center">
+              {user?.nombre}
             </h2>
             <p className="text-sm font-medium text-gray-500 text-center">
-              {user?.description}
+              {/* {user?.description} */} Doctor
             </p>
           </div>
           {/* <div className='flex w-full justify-end'>

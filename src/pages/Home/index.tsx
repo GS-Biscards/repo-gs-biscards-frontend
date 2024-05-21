@@ -1,39 +1,15 @@
+'use client'
 import React from "react";
 import Header from "./Header";
 import Search from "./Search";
 import UserList from "./UsersList";
+import RegisterFormPage from "../RegisterForm";
+import { useAccounts } from "@/hooks/useAccounts";
+import { URL_BASE } from "@/config/env.config";
 
 const HomePage = () => {
-  const users = [
-    {
-      firstName: "John",
-      lastName: "Doe",
-      description: "Doctor",
-      //profileImg: "/asset/icons/guilsoft.png",
-      userId: "id_del_usuario",
-    },
-    {
-      firstName: "John",
-      lastName: "Doe",
-      description: "Doctor",
-      //profileImg: "/asset/icons/guilsoft.png",
-      userId: "id_del_usuario",
-    },
-    {
-      firstName: "John",
-      lastName: "Doe",
-      description: "Doctor",
-      //profileImg: "/asset/icons/guilsoft.png",
-      userId: "id_del_usuario",
-    },
-    {
-      firstName: "John",
-      lastName: "Doe",
-      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-      //profileImg: "/asset/icons/guilsoft.png",
-      userId: "id_del_usuario",
-    },
-  ];
+  const {users, isLoading} = useAccounts()
+
   return (
     <div className="h-full w-full">
       <div className="h-[72px]">
@@ -44,16 +20,19 @@ const HomePage = () => {
           <Search />
         </div>
         <div className="px-[62px] py-10 pb-12">
+        {isLoading ? (
+        <p>cargando...</p>
+      ) : (
           <div className="flex flex-wrap justify-center">
-            {users.map((user: any, index: number) => {
+            {users?.map((user: any, index: number) => {
               return (
                 //<UserList key={`landing-user-card-${index}`} user={user} />
-                <a href={`/user/${user.id}`} key={`landing-user-card-${index}`}>
+                <a href={`${URL_BASE}/sofia-salas-soler`} key={`landing-user-card-${index}`}>
                   <UserList user={user} />
                 </a>
               );
             })}
-          </div>
+          </div>)}
         </div>
       </div>
     </div>
