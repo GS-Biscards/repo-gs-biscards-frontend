@@ -89,6 +89,7 @@ const UserForm = ({ templateList }: Props) => {
                     label={'Telefóno de trabajo'}
                     placeholder={'Ingresar'}
                 />
+                
                 <SelectForm
                     id={'profession-field'}
                     register={register}

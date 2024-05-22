@@ -9,7 +9,7 @@
 .ff-arvo {
     font-family: var(--font-arvo);
 }
-
+  
 .landing-header-menu {
     display: flex;
     justify-content: flex-start;

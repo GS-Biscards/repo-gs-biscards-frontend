@@ -20,7 +20,7 @@ const ContactSection = (props: Props) => {
     const sendEmail = async (data: any) => {
         setDisableBtn(true)
         let formData: any = {
-            to_name: "firstName",
+            to_name: "GuilSoft",
             to_email: "guilsoftweb@gmail.com",
             from_name: data.fullName,
             from_email: data.email,
@@ -28,7 +28,7 @@ const ContactSection = (props: Props) => {
         }
         const formCurrent = convertDataToHTMLform(formData)
         try {
-            await emailjs.sendForm('service_e12e5im', 'template_cp2nein', formCurrent, { publicKey: 'J6d1MFSmExd0eam3p' });
+            await emailjs.sendForm('service_e12e5im', 'template_cp2nein', formCurrent, { publicKey: 'v_jnIdNUYI08HlpHE' });
             console.log('SUCCESS!');
             reset()
         } catch (error: any) {

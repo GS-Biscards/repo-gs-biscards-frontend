@@ -1,4 +1,5 @@
 import { API_URL } from "@/config/env.config";
+import { Template } from "@/models/template.model";
 import axios from "axios";
 
 

@@ -42,6 +42,7 @@ const page = (props: Props) => {
               fieldName={'email'}
               label={'Email'}
               placeholder={'Ingresar'}
+              required={false}
             />
 
             <PaswordForm
@@ -53,6 +54,17 @@ const page = (props: Props) => {
               placeholder={'**********'}
             />
 
+            <PaswordForm
+              id='user-password-field'
+              register={register}
+              errors={errors}
+              fieldName={'passwordRepit'}
+              label={'Repetir Contraseña'}
+              placeholder={'**********'}
+              color={"#ffff"}
+              width={420}
+            />
+
             <button
               type="submit"
               className="ff-roboto bg-[#203F51] text-white px-4 py-2 rounded-md hover:bg-[#82AAAA] hover:text-[#203F51]"
@@ -60,14 +72,14 @@ const page = (props: Props) => {
               Iniciar sesión
             </button>
             <div className='flex w-foll justify-center'>
-            <Link
-              className="ff-roboto text-[#203F51] hover:text-[#203F51]"
-              href={'/register-form'}
-            >
-              Soy Nuevo
-            </Link>
+              <Link
+                className="ff-roboto text-[#203F51] hover:text-[#203F51]"
+                href={'/register-form'}
+              >
+                Soy Nuevo
+              </Link>
             </div>
-           
+
           </div>
         </form>
       </div>

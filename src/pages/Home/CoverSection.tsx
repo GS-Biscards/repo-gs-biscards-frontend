@@ -2,13 +2,12 @@
 import React from 'react'
 import Header from './Header'
 import FrontSection from './FrontSection';
-import SearchUserForm from '../SearchForm';
-import SwiperHome, { Slide } from '@/components/SwiperHome';
-import { useSwiper } from 'swiper/react';
+import { useRouter } from 'next/navigation';
 
 type Props = {}
 
 const CoverSection = (props: Props) => {
+    const router = useRouter();
     const [swiper, setSwiper] = React.useState<any>(null);
     const [initialSlide, setInitialSlide] = React.useState<number>(0);
     const [showSearchSection, setShowSearchSection] = React.useState<boolean>(true);
@@ -35,22 +34,23 @@ const CoverSection = (props: Props) => {
             swiper.slidePrev();
         }
     };
-    const handleSlideChange = (index: any) => {
-        // Puedes agregar lógica adicional aquí si es necesario
+    const handleSearchPage = () => {
+        router.push('/search-users');
     };
     return (
         <div className='h-full'>
             <div className='h-[72px]'>
                 <Header />
             </div>
-            <SwiperHome settings={settings} onSlideChange={handleSlideChange} onSwiper={setSwiper}>
+            <FrontSection slideNext={handleSearchPage} />
+            {/* <SwiperHome settings={settings} onSlideChange={handleSlideChange} onSwiper={setSwiper}>
                 <Slide>
                     <FrontSection slideNext={handleNext} />
                 </Slide>
                 <Slide>
                     <SearchUserForm slidePrev={handlePrev} />
                 </Slide>
-            </SwiperHome>
+            </SwiperHome> */}
         </div>
     )
 }
