@@ -4,6 +4,7 @@ import { useForm, SubmitHandler } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as Yup from "yup";
 import Link from "next/link";
+import { createUser } from "@/services/user.services";
 
 // Define la interfaz de datos del formulario
 interface FormData {
@@ -37,9 +38,10 @@ const SignUpFormPage: React.FC = () => {
   });
 
   // Maneja el envío del formulario
-  const onSignUp: SubmitHandler<FormData> = (data) => {
-    console.log("datos", data);
-    // Realizar acción de registro aquí
+  const onSignUp: SubmitHandler<FormData> = async (data) => {
+    const request = {email:data.email,password:data.password}
+    await createUser(request)
+  
   };
 
   return (
@@ -120,7 +122,7 @@ const SignUpFormPage: React.FC = () => {
               </button>
               <div className="flex justify-center items-center w-full gap-2 mt-4">
                 ¿Ya tienes una cuenta?
-                <Link href="/login-form" className="text-blue-500 hover:underline text-sm" target="_blank" rel="noopener noreferrer">
+                <Link href="/login-form" className="text-blue-500 hover:underline text-sm" target="_self" rel="noopener noreferrer">
                   Acceso
                 </Link>
               </div>
@@ -133,3 +135,7 @@ const SignUpFormPage: React.FC = () => {
 };
 
 export default SignUpFormPage;
+function createUer(request: { email: string; password: string; }) {
+  throw new Error("Function not implemented.");
+}
+

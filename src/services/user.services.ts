@@ -18,3 +18,16 @@ export const getUserId = async (req: any) => {
     return null
   }
 }
+export const createUser = async (req: any) => {
+  try {
+    const resp: any = await axios.post(API_URL.CREATE_USER, req)
+    if (resp) {
+        console.log ("ir al dashboard del cliente", resp.data) 
+        return 
+    }
+    } catch (error) {
+        console.log ("error no ingreso ")
+        return 
+    }
+}
+

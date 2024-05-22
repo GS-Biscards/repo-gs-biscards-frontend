@@ -4,6 +4,7 @@ import { useForm, SubmitHandler } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as Yup from "yup";
 import Link from "next/link";
+import { login } from "@/services/auth.services";
 
 // Define la interfaz de datos del formulario
 interface FormData {
@@ -31,8 +32,10 @@ const LoginFormPage: React.FC = () => {
   });
 
   // Maneja el envío del formulario
-  const onLogin: SubmitHandler<FormData> = (data) => {
+  const onLogin: SubmitHandler<FormData> = async(data) => {
     console.log("data", data);
+    const request = {email:data.email,password:data.password}
+    await login(request)
   };
 
   // Maneja las acciones adicionales
