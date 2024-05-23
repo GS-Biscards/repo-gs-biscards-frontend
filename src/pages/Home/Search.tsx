@@ -8,6 +8,7 @@ import { MagnifyingGlassIcon } from "@heroicons/react/24/outline";
 //import {searchUsersByValue } from '@/services/user.services';
 //import UsersFoundList from './UsersFoundList';
 import Spin from "@/components/Spin";
+import { useSearch } from "@/hooks/useSearch";
 
 interface Props {
   setShowSearchSection?: any;
@@ -27,21 +28,15 @@ const Search = ({ setShowSearchSection, toggleSection, slidePrev }: Props) => {
   }>({ defaultValues: { name: "", profession:"" } });
   const [usersFound, setUsersFound] = React.useState<User[]>([]);
   const [loadingUsers, setLoadingUsers] = React.useState<boolean>(false);
+  const { searchUser} = useSearch()
 
   const serchBusinessCards = async (data: { name: string, profession:string }) => {
     console.log('datos traidos',data)
-    /* try {
-      setLoadingUsers(true)
-      const users = await searchUsersByValue(data.searchValue);
-      setUsersFound(users);
-      setLoadingUsers(false)
-    } catch (error) {
-      setUsersFound([])
-    } */
+    searchUser(data);
   };
 
   return (
-    <div className="mt-16 px-[40px] lg:px[140px]">
+    <div className="mt-16 px-[140px] lg:px[140px]">
     <div className="bg-search">
       <div className="flex flex-col p-[42px] justify-between h-full">
         <p className="ff-montserrat text-[16px] lg:text-[29px] font-bold text-left text-white self-start pb-5">

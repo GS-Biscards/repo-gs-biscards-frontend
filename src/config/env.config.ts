@@ -7,6 +7,6 @@ export const URL_BASE="https://guilsoft.com/"
 export const API_URL = {
     GET_USERS: URL_SERVER + "/account/get-all-accounts",
     CREATE_USER: URL_SERVER + "/user/create-user",
-    GET_USER_BY_USERID: URL_SERVER + "/users/get-user-by-userid"
-    
+    GET_USER_BY_USERID: URL_SERVER + "/users/get-user-by-userid",
+    SEARCH: URL_SERVER + "/search"
 }

@@ -1,14 +1,28 @@
 "use client";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Header from "./Header";
 import Search from "./Search";
 import UserList from "./UsersList";
 import RegisterFormPage from "../RegisterForm";
 import { useAccounts } from "@/hooks/useAccounts";
 import { URL_BASE } from "@/config/env.config";
+import { useSearch } from "@/hooks/useSearch";
 
 const HomePage = () => {
-  const { users, isLoading } = useAccounts();
+  const { accounts, isLoading } = useAccounts();
+  const [users, setUser] = useState(accounts);
+  const { accountSearch} = useSearch();
+
+  useEffect(()=>{
+    console.log('datos filtrados', accountSearch)
+    if(accountSearch && accountSearch.length > 0){
+      setUser(accountSearch)
+      console.log('datos de la busqueda ', accountSearch)
+    }else{
+      setUser(accounts)
+    }
+    
+  },[accounts, accountSearch])
 
   return (
     <div className="h-full w-full">

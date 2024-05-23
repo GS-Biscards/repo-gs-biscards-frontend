@@ -3,14 +3,14 @@ import { getUsers } from "@/services/user.services";
 import { useEffect, useState } from "react";
 
 export function useAccounts() {
-  const [users, setUsers] = useState([]);
+  const [accounts, setAccounts] = useState([]);
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const fetchUsers = async () => {
     setIsLoading(true);
     try {
       const data = await getUsers();
-      setUsers(data);
+      setAccounts(data);
       console.log('datos', data)
     } catch (error) {
       console.error("Error: ", error);
@@ -23,7 +23,7 @@ export function useAccounts() {
     fetchUsers();
   }, []);
   return {
-    users,
+    accounts,
     isLoading
   };
 }

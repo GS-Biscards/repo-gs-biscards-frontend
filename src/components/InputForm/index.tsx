@@ -17,9 +17,12 @@ interface Props {
 const InputForm = ({ id, register, errors, fieldName, label, placeholder, icon, style, required, classprop }: Props) => {
   return (
     <div className={`flex flex-col mb-4 lg:mb-0 ${classprop }`}>
-      <label className="ff-roboto block mb-1">
-        {label}
-      </label>
+      {
+        label ?
+          <label className="ff-roboto block mb-1">
+            {label}
+          </label> : null
+      }
       {/* {icon} */}
       <input
         id={id}
