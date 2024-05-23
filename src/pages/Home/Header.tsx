@@ -11,7 +11,7 @@ const Header = (props: Props) => {
   const handleNavItemClick = (itemName: string) => {};
 
   return (
-    <header className="relative w-full px-5 lg:px-16 bg-[#203F51]">
+    <header className="relative w-full px-5 lg:px-16 bg-gradient-to-r from-[#3B6978] to-[#203F51]">
       <div className={`h-[72px] grid grid-cols-3 items-center`}>
         <div className="col-span-1 flex mt-[10px]">
           <img
