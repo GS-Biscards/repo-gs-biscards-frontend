@@ -1,0 +1,14 @@
+.bg-search {
+    background-image: url('/asset/icons/search.png');
+    background-position: center; 
+    background-repeat: no-repeat; 
+    background-size: cover;
+    width: auto;
+    height: 200px;
+    border-radius: 100px;
+}
+@media (max-width: 720px) {
+    .bg-search {
+        height: 300px; 
+    }
+}

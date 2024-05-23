@@ -41,13 +41,14 @@ const Search = ({ setShowSearchSection, toggleSection, slidePrev }: Props) => {
   };
 
   return (
+    <div className="mt-16 px-[40px] lg:px[140px]">
     <div className="bg-search">
-      <div className="flex flex-col lg:pl-40 lg:pr-40 lg:pt-8">
-        <p className="ff-montserrat text-[10px] lg:text-[29px] font-bold text-left text-white self-start">
+      <div className="flex flex-col p-[42px] justify-between h-full">
+        <p className="ff-montserrat text-[16px] lg:text-[29px] font-bold text-left text-white self-start pb-5">
           Hola, que estás buscando ?
         </p>
         <form onSubmit={handleSearch(serchBusinessCards)} className="w-full">
-          <div className="flex flex-row justify-center gap-x-10 w-full">
+          <div className="flex flex-col md:flex-row justify-center gap-x-10 w-full">
             <InputForm
               id={"search-field-select-search-value"}
               register={register}
@@ -57,7 +58,7 @@ const Search = ({ setShowSearchSection, toggleSection, slidePrev }: Props) => {
               icon={''}
               style={{height: '52px', borderRadius: '20px' }}
               required={false}
-              classprop={'w-[30%]'}
+              classprop={'w-[100%]'}
             />
             <InputForm
               id={"search-field-select-search-value"}
@@ -68,10 +69,10 @@ const Search = ({ setShowSearchSection, toggleSection, slidePrev }: Props) => {
               icon={<MagnifyingGlassIcon className="h-6 w-6 text-gray-400" aria-hidden="true" />}
               style={{height: '52px', borderRadius: '20px'}}
               required={false}
-              classprop={'w-[30%]'}
+              classprop={'w-[100%]'}
             />
             <button
-              className="cursor-pointer text-white h-[52px] w-[30%] rounded-[20px] bg-[#203F51] flex justify-center items-center"
+              className="text-white h-[52px] w-[100%] rounded-[20px] bg-[#203F51] flex justify-center items-center border-2 border-[#F6F6F6]"
               type="submit"
             >
               <MagnifyingGlassIcon className="h-6 w-6 flex-none text-white" aria-hidden="true"/>
@@ -82,6 +83,9 @@ const Search = ({ setShowSearchSection, toggleSection, slidePrev }: Props) => {
       </div>
       {loadingUsers && <Spin showSpin={loadingUsers} />}
       {/* <UsersFoundList usersFound={usersFound} /> */}
+    </div>
+    
+      
     </div>
   );
 };
