@@ -1,6 +1,6 @@
 import InputForm from "@/components/InputForm";
 
-const Address = ({ register, errors, setValue }: any) => {
+const Address = ({ register, errors}: any) => {
   return (
     <>
       <div>

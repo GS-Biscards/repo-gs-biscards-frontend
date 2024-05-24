@@ -1,6 +1,6 @@
 import InputForm from "@/components/InputForm";
 
-const Profession = ({ register, errors, setValue }: any) => {
+const Profession = ({ register, errors}: any) => {
   return (
     <>
       <div>

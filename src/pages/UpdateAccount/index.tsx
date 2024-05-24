@@ -9,6 +9,7 @@ import { UpdUserFree } from "@/models/userFree.model";
 import History from "./History";
 import Address from "./Address";
 import Profession from "./Profession";
+import SocialMedia from "./SocialMedia";
 
 
 const navItems = [
@@ -46,7 +47,7 @@ const UpdateAccountPage: React.FC = () => {
           {navItems.map((item) => (
             <div
               key={item.value}
-              className={`w-full p-2 rounded-l-lg ml-8 my-4 ${
+              className={`w-full p-2 rounded-l-lg ml-8 my-4 cursor-pointer ${
                 itemSel === item.value
                   ? "act bg-white text-[#203F51]"
                   : "dis text-white"
@@ -66,17 +67,19 @@ const UpdateAccountPage: React.FC = () => {
           <Name register={register} errors={errors} setValue={setValue} />
         )}
         {itemSel === 2 && (
-          <History register={register} errors={errors} setValue={setValue} />
+          <History register={register} errors={errors}/>
         )}
 
         {itemSel === 3 && (
-          <Address register={register} errors={errors} setValue={setValue} />
+          <Address register={register} errors={errors}/>
         )}
 
         {itemSel === 4 && (
-          <Profession register={register} errors={errors} setValue={setValue} />
+          <Profession register={register} errors={errors}/>
         )}
-        {itemSel === 5 && <div></div>}
+        {itemSel === 5 && (
+          <SocialMedia register={register} errors={errors}/>
+        )}
 
         <div className="flex flex-col gap-4 w-full text-gray-700">
           <button

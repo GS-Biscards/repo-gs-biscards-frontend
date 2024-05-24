@@ -1,6 +1,6 @@
 import InputForm from "@/components/InputForm";
 
-const History = ({ register, errors, setValue }: any) => {
+const History = ({ register, errors}: any) => {
   return (
     <>
       <div>

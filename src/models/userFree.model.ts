@@ -29,7 +29,7 @@ export interface UpdUserFree {
     street_number:string;
 
     //socialMedia: SocialMedia
-    facebookUrl?:string;
-    instagramUrl?:string;
-    linkedinUrl?:string;
+    facebookUrl:string;
+    instagramUrl:string;
+    linkedinUrl:string;
 }
