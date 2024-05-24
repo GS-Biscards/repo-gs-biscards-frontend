@@ -13,6 +13,7 @@ const HomePage = () => {
   const [users, setUser] = useState(accounts);
   const { accountSearch} = useSearch();
 
+  console.log('-----users:', accountSearch)
   useEffect(()=>{
     console.log('datos filtrados', accountSearch)
     if(accountSearch && accountSearch.length > 0){
@@ -22,7 +23,7 @@ const HomePage = () => {
       setUser(accounts)
     }
     
-  },[accounts, accountSearch])
+  },[accountSearch, accounts])
 
   return (
     <div className="h-full w-full">

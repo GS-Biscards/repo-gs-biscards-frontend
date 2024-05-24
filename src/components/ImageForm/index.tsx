@@ -5,7 +5,7 @@ interface Props {
   id: string;
   register: any;
   errors: any;
-  setValue: any;
+  setValue?: any;
   fieldName: string;
   fieldBase64: string;
   label: string;
@@ -43,9 +43,9 @@ function ImageForm({ id, register, errors, setValue, fieldName, fieldBase64, lab
         onChange={handleFileChange}
       />
       <div className="mt-1 text-sm text-gray-500 dark:text-gray-300" id="user_profile_help">
-        A profile picture is useful to confirm you are logged into your account
+        Una foto de perfil es útil para confirmar que ha iniciado sesión en su cuenta
       </div>
-      {errors[fieldName] && <span className="text-red-500 text-xs">This field is required</span>}
+      {errors[fieldName] && <span className="text-red-500 text-xs">Este campo es obligatorio</span>}
     </div>
   );
 }

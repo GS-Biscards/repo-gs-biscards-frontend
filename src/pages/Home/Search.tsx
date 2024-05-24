@@ -10,17 +10,15 @@ import { MagnifyingGlassIcon } from "@heroicons/react/24/outline";
 import Spin from "@/components/Spin";
 import { useSearch } from "@/hooks/useSearch";
 
-interface Props {
+/* interface Props {
   setShowSearchSection?: any;
   toggleSection?: any;
   slidePrev?: any;
 }
-
-const Search = ({ setShowSearchSection, toggleSection, slidePrev }: Props) => {
+ */
+const Search = () => {
   const {
     register,
-    getValues,
-    setValue,
     formState: { errors },
     handleSubmit: handleSearch,
   } = useForm<{

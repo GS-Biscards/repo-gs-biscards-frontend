@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 
 export const useSearch = () => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
-  const [accountSearch, setAccountSearch] = useState<any | null>(null);
+  const [accountSearch, setAccountSearch] = useState<any>([]);
 
   const searchUser = async (body: any) => {
     setIsLoading(true);
