@@ -1,0 +1,14 @@
+.slick-slide > div {
+    margin: 0 10px; /* 5px de cada lado, para un total de 20px entre las tarjetas */
+}
+.slick-list {
+    margin: 0 -10px; /* Compensa el margen aplicado a los elementos internos */
+}
+.card {
+    transition: border-color 0.3s ease;
+}
+
+.card:hover {
+    border-color: #fdbc68; 
+    box-shadow: 0 0 10px rgba(42, 43, 36, 0.5); 
+}
