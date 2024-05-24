@@ -5,7 +5,7 @@ interface Props {
   id: string;
   register: any;
   errors: any;
-  setValue?: any;
+  setValue: any;
   fieldName: string;
   fieldBase64: string;
   label: string;
