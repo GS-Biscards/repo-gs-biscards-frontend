@@ -14,7 +14,7 @@ import SocialMedia from "./SocialMedia";
 
 const navItems = [
   { name: "Nombre", value: 1 },
-  { name: "Historia", value: 2 },
+  { name: "Sobre mí", value: 2 },
   { name: "Direccion", value: 3 },
   { name: "Profesión", value: 4 },
   { name: "Redes Sociales", value: 5 },
