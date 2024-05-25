@@ -1,25 +1,29 @@
 import InputForm from "@/components/InputForm";
+import TextAreaForm from "@/components/TextAreaForm";
 
 const History = ({ register, errors}: any) => {
   return (
     <>
-      <div>
-        <label htmlFor="miHistoria" className="block text-sm font-medium">
-          Mi Historia
-        </label>
-        <textarea
-          id="miHistoria"
-          placeholder="Cuenta tu historia"
-          {...register("history")}
-          className="mt-1 block w-full p-2 border border-gray-300 rounded"
-          rows={4}
-        />
-        {errors.history && (
-          <span className="text-red-600 text-sm">
-            {errors.history?.message}
-          </span>
-        )}
-      </div>
+      <TextAreaForm
+      id={"search-field-select-search-value"}
+      register={register}
+      errors={errors}
+      fieldName={"history"}
+      placeholder={"Historia"}
+      label={"Historia"}
+      lines={10}
+      styleLabel={"text-sm font-medium"}
+      style={{
+        marginTop: "4px",
+        width: "100%",
+        padding: "8px",
+        borderWidth: "1px",
+        borderColor: "rgb(209 213 219)",
+        borderRadius: "4px",
+      }}
+      required={false}
+      classprop={"w-[100%]"}
+      />
     </>
   );
 };
