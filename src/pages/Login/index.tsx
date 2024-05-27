@@ -6,7 +6,8 @@ import * as Yup from "yup";
 import Link from "next/link";
 import { login } from "@/services/auth.services";
 import { useRouter } from "next/navigation";
-
+import bzCardStore from "@/staores";
+import { getAuthStore } from "@/staores/auth/auth.store";
 // Define la interfaz de datos del formulario
 interface FormData {
   email: string;
@@ -16,6 +17,7 @@ interface FormData {
 
 const LoginFormPage: React.FC = () => {
   const router = useRouter();
+  const { setToken } = bzCardStore.getState()
   // Define el esquema de validación usando Yup
   const validationSchema = Yup.object().shape({
     email: Yup.string()
@@ -37,7 +39,7 @@ const LoginFormPage: React.FC = () => {
   const onLogin: SubmitHandler<FormData> = async (data) => {
     const request = { email: data.email, password: data.password }
     try {
-
+       const resp = setToken(request)
       //await login(request);
       router.replace('/update-account')
     } catch (error: any) {

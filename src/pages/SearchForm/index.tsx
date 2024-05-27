@@ -2,7 +2,6 @@
 import React, { useEffect, useState } from "react";
 import Search from "./Search";
 import UserList from "./UsersList";
-import RegisterFormPage from "../RegisterForm";
 import { useAccounts } from "@/hooks/useAccounts";
 import { URL_BASE } from "@/config/env.config";
 import { useSearch } from "@/hooks/useSearch";

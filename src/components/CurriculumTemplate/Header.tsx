@@ -20,14 +20,14 @@ const Header = ({ handleQrModal }: Props) => {
                     className="text-3xl font-semibold text-white"
                     href="/">
                     <img
-                                    alt="logo"
-                                    src="asset/icons/logo-guilsoft-text.png"
-                                    width="153"
-                                    height="26"
-                                    decoding="async"
-                                    data-nimg="1"
-                                    style={{ color: 'transparent' }}
-                                /> 
+                        alt="logo"
+                        src="asset/icons/logo-guilsoft-text.png"
+                        width="153"
+                        height="26"
+                        decoding="async"
+                        data-nimg="1"
+                        style={{ color: 'transparent' }}
+                    />
                 </a>
                 <div className="flex items-center">
 
