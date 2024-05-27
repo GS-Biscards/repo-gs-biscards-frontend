@@ -1,10 +1,10 @@
-import LoginFormPage from '@/pages/Login';
+import DashboardUserSocial from '@/pages/DaschboardUserSocial';
 import React from 'react';
 
 export default function Home() {
   return (
     <div >
-      <LoginFormPage />
+      <DashboardUserSocial/>
     </div>
   )
 }

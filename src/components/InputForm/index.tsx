@@ -9,12 +9,11 @@ interface Props {
   label?: string,
   placeholder: string,
   icon?: any,
-  style?: any,
   classprop?: string,
   required: boolean,
 }
 
-const InputForm = ({ id, register, errors, fieldName, label, placeholder, icon, style, required, classprop }: Props) => {
+const InputForm = ({ id, register, errors, fieldName, label, placeholder, icon,  required, classprop }: Props) => {
   return (
     <div className={`flex flex-col mb-4 lg:mb-0 ${classprop}`}>
       {
@@ -28,7 +27,6 @@ const InputForm = ({ id, register, errors, fieldName, label, placeholder, icon, 
         {...register(`${fieldName}`, { required })}
         className={`ff-roboto shadow-md rounded-lg opacity-100 p-2 w-full text-md placeholder:text-gray-400 border-0 border-[1px] border-[#D8D5D5] appearance-none focus:border-[2px] dark:border-[##D8D5D5] dark:focus:border-[#203F51] focus:outline-none focus:ring-0 focus:border-[#203F51] peer ${errors[fieldName] === undefined ? "" : "border-red-500"}`}
         placeholder={placeholder}
-        style={style}
       />
       {required && (
         <div className="h-6 p-0 m-0">

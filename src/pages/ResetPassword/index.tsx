@@ -65,10 +65,10 @@ const ResetPasswordPage: React.FC = () => {
                 Restablecer contraseña
               </button>
               <div className="flex justify-center items-center w-full gap-2 mt-4">
-              Volver a 
-                <Link href="/login-form" legacyBehavior> 
+                Volver a
+                <Link href="/login-form" legacyBehavior>
                   <a target="_self" rel="noopener noreferrer" className="text-blue-500 hover:underline text-sm">
-                   sign in
+                    inicio de sesion
                   </a>
                 </Link>
               </div>

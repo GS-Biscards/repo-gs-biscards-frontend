@@ -21,19 +21,22 @@ export const getUserId = async (req: any) => {
 }
 
 export const searchUsersByValue = async (value: string): Promise<User[]> => {
-
   try {
-   // const users: any = await axios.post(API_URL.SEARCH_USERS_BY_VALUE, { searchValue: value })
-   const users: any = await axios.post(API_URL.GET_USERS, value )
-   // return users.data
-   const result: User[] = [];
+    const users: any = await axios.post(API_URL.GET_USERS, value)
+    const result: User[] = [];
     for (let i = 0; i < 5; i++) {
       result.push(...users.data);
     }
     return result;
-    
+
   } catch (error) {
     return []
   }
 
 }
+
+export const createUser = async (req: any) => {
+  const resp: any = await axios.post(API_URL.CREATE_USER, req)
+  return resp.data;
+}
+

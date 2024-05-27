@@ -22,7 +22,7 @@ const PasswordForm = ({ id, register, errors, fieldName, label, placeholder, col
         id={id}
         {...register(`${fieldName}`, { required: true, pattener: '/$D/' })}
         className={`ff-roboto shadow-md rounded-lg opacity-100 p-2 w-full text-md placeholder:text-gray-400 border-0 border-[1px] border-[#D8D5D5] appearance-none focus:border-[2px] dark:border-[##D8D5D5] dark:focus:border-[#203F51] focus:outline-none focus:ring-0 focus:border-[#203F51] peer ${errors[fieldName] === undefined ? "" : "border-red-500"} `}
-        style={`color:${color}, width:${width}`}
+        // style={`color:${color ? color : ''}, width:${width ? width : ''}`}
         placeholder={placeholder}
         required=""
         type='password'

@@ -4,6 +4,8 @@ import { useForm, SubmitHandler } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as Yup from "yup";
 import Link from "next/link";
+import { login } from "@/services/auth.services";
+import { useRouter } from "next/navigation";
 
 // Define la interfaz de datos del formulario
 interface FormData {
@@ -13,6 +15,7 @@ interface FormData {
 }
 
 const LoginFormPage: React.FC = () => {
+  const router = useRouter();
   // Define el esquema de validación usando Yup
   const validationSchema = Yup.object().shape({
     email: Yup.string()
@@ -31,8 +34,16 @@ const LoginFormPage: React.FC = () => {
   });
 
   // Maneja el envío del formulario
-  const onLogin: SubmitHandler<FormData> = (data) => {
-    console.log("data", data);
+  const onLogin: SubmitHandler<FormData> = async (data) => {
+    const request = { email: data.email, password: data.password }
+    try {
+
+      await login(request);
+      router.replace('')
+    } catch (error: any) {
+      console.log("error", error.response.data.message)
+
+    }
   };
 
   // Maneja las acciones adicionales
