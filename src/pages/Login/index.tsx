@@ -38,8 +38,8 @@ const LoginFormPage: React.FC = () => {
     const request = { email: data.email, password: data.password }
     try {
 
-      await login(request);
-      router.replace('')
+      //await login(request);
+      router.replace('/update-account')
     } catch (error: any) {
       console.log("error", error.response.data.message)
 

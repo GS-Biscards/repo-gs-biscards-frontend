@@ -1,6 +1,6 @@
 import React from 'react';
 interface Props {
-    handleQrModal: any
+    handleQrModal?: any
 }
 
 const Header = ({ handleQrModal }: Props) => {

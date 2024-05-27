@@ -2,6 +2,16 @@ import { API_URL } from "@/config/env.config";
 import { User } from "@/models/user.model";
 import axios from "axios";
 
+export const getUsers = async () => {
+  try {
+    const user: any = await axios.get(API_URL.GET_USERS)
+    if (user) {
+      return user.data
+    }
+  } catch (error) {
+    return null
+  }
+}
 
 export const getUserId = async (req: any) => {
   const { userId } = req;
