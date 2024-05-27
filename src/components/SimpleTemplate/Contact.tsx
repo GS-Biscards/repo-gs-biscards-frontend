@@ -2,6 +2,7 @@ import React from 'react';
 import emailjs from '@emailjs/browser';
 import { User } from '@/models/user.model';
 import { useForm } from 'react-hook-form';
+import { convertDataToHTMLform } from '@/utils/convert.file';
 
 interface Props {
     user: User;
@@ -18,29 +19,22 @@ const Contact = ({ user }: Props) => {
     const [disabledBtn, setDisableBtn] = React.useState(false);
 
     const sendEmail = async (data: any) => {
-        console.log("data", data)
         setDisableBtn(true)
-        let formCurrent: any = {
+        let formData: any = {
             to_name: user.firstName,
             to_email: user.email,
             from_name: data.name,
             from_email: data.email,
             from_message: data.message
         }
-
-        await emailjs
-            .sendForm('service_e12e5im', 'template_cp2nein', formCurrent, { publicKey: 'J6d1MFSmExd0eam3p' })
-            .then(
-                () => {
-                    console.log('SUCCESS!');
-                },
-                (error) => {
-                    console.log('FAILED...', error.text);
-                },
-            );
-        console.log("formCurrent", formCurrent)
-        reset()
-        console.log("data", data)
+        const formCurrent = convertDataToHTMLform(formData)
+        try {
+            await emailjs.sendForm('service_e12e5im', 'template_cp2nein', formCurrent, { publicKey: 'J6d1MFSmExd0eam3p' });
+            console.log('SUCCESS!');
+            reset()
+        } catch (error: any) {
+            console.log("ERROR");
+        }
         setDisableBtn(false)
     }
     return (
