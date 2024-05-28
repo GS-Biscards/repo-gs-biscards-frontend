@@ -10,6 +10,8 @@ import History from "./History";
 import Address from "./Address";
 import Profession from "./Profession";
 import SocialMedia from "./SocialMedia";
+import { useUpdate } from "@/hooks/useUpdate";
+import bzCardStore from "@/staores";
 
 
 const navItems = [
@@ -29,10 +31,12 @@ const UpdateAccountPage: React.FC = () => {
     getValues,
   } = useForm<UpdUserFree>();
   const [itemSel, setItemSel] = React.useState<number>(1);
-
+  const { updateUser } = useUpdate()
+  const { token } = bzCardStore.getState();
+  console.log('TOKEN', token)
   const update: SubmitHandler<UpdUserFree> = (data) => {
     console.log("datos", data);
-    // Realizar acción de registro aquí
+    //updateUser(id, data);
   };
 
   useEffect(() => {
@@ -89,7 +93,7 @@ const UpdateAccountPage: React.FC = () => {
             Guardar
           </button>
         </div>
-        <div className="flex justify-between gap-4 text-white mt-8">
+        <div className={`flex gap-4 text-white mt-8 ${itemSel ===1 ? 'justify-end' : 'justify-between '}`}>
           {itemSel !== 1 && (
             <button
               onClick={() => setItemSel((prev) => (prev > 1 ? prev - 1 : prev))}

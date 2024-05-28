@@ -1,7 +1,6 @@
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
 import { AuthType } from "./auth.type";
-import { getUsers } from "@/services/user.services";
 import { login } from "@/services/auth.services";
 
 const authStore = create (
