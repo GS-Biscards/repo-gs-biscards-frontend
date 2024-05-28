@@ -1,5 +1,6 @@
 export const URL_GDRIVE="https://drive.google.com/uc?export=view&id="
 export const URL_SERVER="https://us-central1-gs-biscards-backend.cloudfunctions.net/api"
+export const URL_BASE="https://guilsoft.com/"
 
 export const API_URL = {
     GET_USERS: URL_SERVER + "/users/get-user",

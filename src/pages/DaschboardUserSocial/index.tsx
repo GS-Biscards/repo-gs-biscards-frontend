@@ -41,34 +41,13 @@ const DashboardUserSocial: React.FC = () => {
     console.log("formulario2", JSON.parse(formulario2));
     console.log("formulario3", JSON.parse(formulario3));
     console.log("formulario4", data);
-    const request2 = {
+    const request1 = {
         ...JSON.parse(formulario1), ...JSON.parse(formulario2) ,...JSON.parse(formulario3),...data
 
     }
-        const request = {
-        userId: "",
-        firstName: JSON.parse(formulario1).firstName,
-        lastName: "",
-        companyName: "",
-        email: "",
-        phoneNumbre: "",
-        profesion: "",
-        rol_cargo: "",
-        rubro_comercio: "",
-        servicio: "",
-        street: "",
-        number: "",
-        locality: "",
-        province: "",
-        country: "",
-        facebookUrl: "",
-        instagramUrl: "",
-        whatsappUrl: "",
-        idProfession: "",
-        };
-        console.log("1" ,request);
-        console.log("2" ,request2);
-        const resp = await  createAccountFree(request2)
+    
+        console.log("2" ,request1);
+        const resp = await  createAccountFree(request1)
     // localStorage.setItem("formulario3", JSON.stringify(data));
     // router.push('/register-user2/paso3');
 };

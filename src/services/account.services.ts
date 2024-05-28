@@ -11,7 +11,7 @@ export const createAccountFree = async (req: any) => {
             return resp.data 
         }
         } catch (error) {
-            console.log ("error no ingreso ")
+            console.log ('Error al crear la cuenta:', error)
             return 
         }
 }

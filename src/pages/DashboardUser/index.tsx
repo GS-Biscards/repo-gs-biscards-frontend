@@ -119,28 +119,6 @@ const DashboardUserPage: React.FC = () => {
               <hr className="h-px mb-8 bg-slate-800 border-1 rounded"/>        
 
             <Slider {...settings} className="w-full lg:w-[120%] ">
-              {/* card mas chica con imagen al costado  
-              <div className="bg-white rounded-lg  lg:h-50 shadow-lg overflow-hidden flex-shrink-0 w-auto card">
-                <img
-                  className="w-full sm:w-64 sm:rounded-l-2xl sm:border-2 sm:absolute  object-cover object-center"
-                  src="/asset/images/1.png"
-                  alt="Card image"
-                />
-                <div className="p-4 sm:text-right">
-                  <h2 className="text-gray-900 font-bold text-xl mb-2">
-                    Template Básico
-                  </h2>
-                  <p className="text-gray-700">Subtítulo de la tarjeta</p>
-                  <div className="flex justify-end gap-4 mt-4">
-                    <button className="px-4 py-2 bg-gray-400 text-white rounded">
-                      Ver más
-                    </button>
-                    <button className="px-4 py-2 bg-gray-800 text-white rounded">
-                      Seleccionar
-                    </button>
-                  </div>
-                </div>
-              </div> */}
               <div className="bg-white rounded-lg shadow-lg overflow-hidden flex-shrink-0 w-auto card">
                 <img
                   className="w-full h-50 object-cover object-center"
