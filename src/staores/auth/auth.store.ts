@@ -10,7 +10,7 @@ const authStore = create (
             setToken: async ( reqLogin: any) => {
                 try {                    
                     const resp = await login(reqLogin);
-                    set(() => ( { token : resp.data}));
+                    set(() => ( { token : resp.data.token}));
                     return true
                 } catch (error) {
                     return false

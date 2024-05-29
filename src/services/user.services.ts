@@ -13,13 +13,12 @@ export const getUsers = async () => {
   }
 }
 
-export const putUser = async (req:any, data:any, token: any)=>{
+export const putUser = async (data:any, token: any)=>{
   try{
-      const {id}=req
       axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
-      const task: any = await axios.put(`${API_URL.UPDATE_ACCOUNT}/${id}`, data)
-      console.log('Respuesta del servidor:', task.data);
-      return task.data
+      const user: any = await axios.put('API_URL.UPDATE_ACCOUNT', data)
+      console.log('Respuesta del servidor:', user.status);
+      return user.data
   } catch(error){
       console.error('Error al enviar la solicitud:', error);
       throw error;
@@ -27,20 +26,18 @@ export const putUser = async (req:any, data:any, token: any)=>{
 }
 
 export const getUserId = async (req: any) => {
-  const { userId } = req;
-
-  if (userId) {
-    try {
-      const user: any = await axios.post(API_URL.GET_USER_BY_USERID, { userId: userId })
-      if (user) {
-        return user.data
+  try {
+      const response: any = await axios.get(`${API_URL.GET_USER_BY_USERID}/${req}`)
+      console.log('Respuesta del servidor:', response.data.data);
+      if (response.data && response.data.status && response.data.data) {
+        return response.data.data; 
+      } else {
+        console.error('La respuesta no tiene los datos esperados:', response.data);
+        return null;
       }
     } catch (error) {
       return null
     }
-  } else {
-    return null
-  }
 }
 
 export const searchUsersByValue = async (value: string): Promise<User[]> => {

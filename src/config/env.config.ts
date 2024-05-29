@@ -6,7 +6,7 @@ export const API_URL = {
     SEARCH: URL_SERVER + "/search",
     GET_USERS: URL_SERVER + "/account/get-all-accounts",
     CREATE_USER: URL_SERVER + "/users/create-user",
-    GET_USER_BY_USERID: URL_SERVER + "/users/get-user-by-userid",
+    GET_USER_BY_USERID: URL_SERVER + "/account/get-account",
     CREATE_ACCOUNT_FREE: URL_SERVER + "/account/create-account-free",
-    UPDATE_ACCOUNT: URL_SERVER + "/account/update-account/:id"
+    UPDATE_ACCOUNT: URL_SERVER + "/account/update-account"
 }
