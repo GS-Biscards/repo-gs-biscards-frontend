@@ -6,17 +6,18 @@ export interface ResUserFree {
 }
 
 export interface UpdUserFree {
-    //idTemplate:string
+    idTemplate?:string
     profileImg:string
     firstName:string
     lastName:string;
-    //email:string;
-    phoneNumbre:string;
+    email?:string;
+    phoneNumber:string;
     history:string
 
     //acerca de mi
-    typeUser:string;
+    typeUser?:string;
     idProfession:string;
+    profession: string;
     rol_cargo:string;
     rubro:string
     servicio_comercio:string;
@@ -26,7 +27,8 @@ export interface UpdUserFree {
     country:string;
     province:string;
     locality:string;
-    street_number:string;
+    street: string,
+    number:string;
 
     //socialMedia: SocialMedia
     facebookUrl:string;

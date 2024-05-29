@@ -8,7 +8,7 @@ const Profession = ({ register, errors}: any) => {
           id={"search-field-select-search-value"}
           register={register}
           errors={errors}
-          fieldName={"idProfession"}
+          fieldName={"profession"}
           placeholder={"Profesión"}
           label={"Profesión"}
           styleLabel={"text-sm font-medium"}

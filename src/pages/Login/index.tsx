@@ -17,7 +17,7 @@ interface FormData {
 
 const LoginFormPage: React.FC = () => {
   const router = useRouter();
-  const { setToken } = bzCardStore.getState()
+  const { setToken } = getAuthStore().getState()
   // Define el esquema de validación usando Yup
   const validationSchema = Yup.object().shape({
     email: Yup.string()

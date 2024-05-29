@@ -45,12 +45,12 @@ const Name = ({ register, errors, setValue }: any) => {
           classprop={"w-[100%]"}
         />
         <ImageForm
-          id="profileImage"
+          id="profileImg"
           register={register}
           errors={errors}
           setValue={setValue}
-          fieldName="profileImage"
-          fieldBase64="profileImageBase64"
+          fieldName="profileImg"
+          fieldBase64="profileImgBase64"
           label="Profile Picture"
         />
 
@@ -58,7 +58,7 @@ const Name = ({ register, errors, setValue }: any) => {
           id={"search-field-select-search-value"}
           register={register}
           errors={errors}
-          fieldName={"phoneNumbre"}
+          fieldName={"phoneNumber"}
           placeholder={"Teléfono"}
           label={"Teléfono"}
           styleLabel={"text-sm font-medium"}
