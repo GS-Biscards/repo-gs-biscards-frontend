@@ -68,7 +68,7 @@ const ResetPasswordPage: React.FC = () => {
               Volver a 
                 <Link href="/login-form" legacyBehavior> 
                   <a target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:underline text-sm">
-                   sign in
+                    inicio de sesión
                   </a>
                 </Link>
               </div>
