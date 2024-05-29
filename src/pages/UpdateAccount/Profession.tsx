@@ -1,10 +1,24 @@
 import InputForm from "@/components/InputForm";
+import SelectForm from "@/components/SelectForm";
+import { useProfessions } from "@/hooks/useProfessions";
 
 const Profession = ({ register, errors}: any) => {
+  const {professions}=useProfessions()
   return (
     <>
       <div>
-        <InputForm
+      <SelectForm
+                id="profession"
+                register={register}
+                errors={errors}
+                fieldName="profession"
+                label="Profesión"
+                placeholder="Profesiónn"
+                data={professions}
+                itemValue="id"
+                itemDescription="name"
+            />
+        {/* <InputForm
           id={"search-field-select-search-value"}
           register={register}
           errors={errors}
@@ -22,7 +36,7 @@ const Profession = ({ register, errors}: any) => {
           }}
           required={false}
           classprop={"w-[100%]"}
-        />
+        /> */}
         <InputForm
           id={"search-field-select-search-value"}
           register={register}

@@ -24,13 +24,8 @@ const navItems = [
 ];
 
 const UpdateAccountPage: React.FC = () => {
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-    setValue,
-    getValues,
-  } = useForm<UpdUserFree>();
+  const { register, handleSubmit, formState: { errors }, setValue, getValues, } = useForm<UpdUserFree>();
+
   const [itemSel, setItemSel] = React.useState<number>(1);
   const { updateUser } = useUpdate();
   const [account, setAccount] = useState([]);
@@ -79,7 +74,7 @@ const UpdateAccountPage: React.FC = () => {
 
   return (
     <div className="flex w-full h-full items-center bg-white">
-      <div className="w-[20%]">
+      <div className="w-[20%] h-full">
         <div className=" p-4 bg-gradient-to-b from-[#203f51] to-[#82aaaa] min-h-screen">
           {navItems.map((item) => (
             <div
@@ -96,58 +91,58 @@ const UpdateAccountPage: React.FC = () => {
           ))}
         </div>
       </div>
-      <form
-        onSubmit={handleSubmit(update)}
-        className="flex flex-col w-full max-w-md mx-auto p-8 lg:p-12"
-      >
-     {/*  <img src={user.imagesAccount.profileImg} alt="" className="w-full h-full"/> */}
-
-        {itemSel === 1 && (
-          <Name register={register} errors={errors} setValue={setValue} />
-        )}
-        {itemSel === 2 && <History register={register} errors={errors} />}
-
-        {itemSel === 3 && <Address register={register} errors={errors} />}
-
-        {itemSel === 4 && <Profession register={register} errors={errors} />}
-        {itemSel === 5 && <SocialMedia register={register} errors={errors} />}
-
-        <div className="flex flex-col gap-4 w-full text-gray-700">
-          <button
-            type="submit"
-            className="w-full p-2 bg-slate-800 font-semibold text-white rounded mt-4 hover:bg-slate-500"
-          >
-            Guardar
-          </button>
-        </div>
-        <div
-          className={`flex gap-4 text-white mt-8 ${
-            itemSel === 1 ? "justify-end" : "justify-between "
-          }`}
+      <div className="h-screen overflow-y-scroll w-[80%]">
+        <form
+          onSubmit={handleSubmit(update)}
+          className="flex flex-col w-full max-w-md mx-auto p-8 lg:p-12"
         >
-          {itemSel !== 1 && (
-            <button
-              onClick={() => setItemSel((prev) => (prev > 1 ? prev - 1 : prev))}
-              className="w-[132px] h-[43px]  text-center text-base border text-slate-900 border-gray-300 font-semibold rounded hover:bg-gray-500"
-            >
-              Anterior
-            </button>
+          {itemSel === 1 && (
+            <Name register={register} errors={errors} setValue={setValue} profileImg={user.imagesAccount.profileImg}/>
           )}
-          {itemSel !== 5 && (
+          {itemSel === 2 && <History register={register} errors={errors} />}
+
+          {itemSel === 3 && <Address register={register} errors={errors} />}
+
+          {itemSel === 4 && <Profession register={register} errors={errors} />}
+          {itemSel === 5 && <SocialMedia register={register} errors={errors} />}
+
+          <div className="flex flex-col gap-4 w-full text-gray-700">
             <button
-              onClick={() => {
-                setItemSel((prev) =>
-                  prev < navItems.length ? prev + 1 : prev
-                );
-                console.log("get values", getValues());
-              }}
-              className="w-[132px] h-[43px] text-white text-center text-base bg-slate-900 font-semibold rounded hover:bg-slate-400"
+              type="submit"
+              className="w-full p-2 bg-slate-800 font-semibold text-white rounded mt-4 hover:bg-slate-500"
             >
-              Siguiente
+              Guardar
             </button>
-          )}
-        </div>
-      </form>
+          </div>
+          <div
+            className={`flex gap-4 text-white mt-8 ${
+              itemSel === 1 ? "justify-end" : "justify-between "
+            }`}
+          >
+            {itemSel !== 1 && (
+              <button
+                onClick={() => setItemSel((prev) => (prev > 1 ? prev - 1 : prev))}
+                className="w-[132px] h-[43px]  text-center text-base border text-slate-900 border-gray-300 font-semibold rounded hover:bg-gray-500"
+              >
+                Anterior
+              </button>
+            )}
+            {itemSel !== 5 && (
+              <button
+                onClick={() => {
+                  setItemSel((prev) =>
+                    prev < navItems.length ? prev + 1 : prev
+                  );
+                  console.log("get values", getValues());
+                }}
+                className="w-[132px] h-[43px] text-white text-center text-base bg-slate-900 font-semibold rounded hover:bg-slate-400"
+              >
+                Siguiente
+              </button>
+            )}
+          </div>
+        </form>
+      </div>
     </div>
   );
 };
