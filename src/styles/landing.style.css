@@ -9,6 +9,10 @@
 .ff-arvo {
     font-family: var(--font-arvo);
 }
+  
+.ff-montserrat{
+    font-family: var(--font-montserrat);
+}
 
 .landing-header-menu {
     display: flex;

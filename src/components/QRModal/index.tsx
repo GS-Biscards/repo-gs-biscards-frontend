@@ -1,6 +1,5 @@
 import React from 'react';
 
-
 interface Props {
   showModal: boolean;
   qrcode: any;
@@ -17,7 +16,6 @@ const QRModal = ({ showModal, qrcode, close }: Props) => {
           >
             <div className="relative w-full mx-6 md:w-[400px] my-6 md:mx-auto md:max-w-4xl">
               <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
-                {/*header*/}
                 <div className="flex items-start justify-between p-5 border-b border-solid border-blueGray-200 rounded-t">
                   <h2 className="text-2xl md:text-3xl font-medium mb-2.5 text-black">
                     Compartir
@@ -31,7 +29,6 @@ const QRModal = ({ showModal, qrcode, close }: Props) => {
                     </span>
                   </button>
                 </div>
-
                 <div className="flex justify-center items-center p-6 flex-auto">
                   <img
                     src={qrcode}
@@ -39,11 +36,11 @@ const QRModal = ({ showModal, qrcode, close }: Props) => {
                     className='w-[250px] h-[250px]'
                   />
                 </div>
-
               </div>
             </div>
           </div>
-          <div className="opacity-25 fixed inset-0 z-40 bg-black"></div>
+          <div className="opacity-25 fixed inset-0 z-40 bg-black">
+          </div>
         </>
       ) : null}
     </div>

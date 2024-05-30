@@ -1,9 +1,9 @@
 import React from 'react';
 import { User } from '@/models/user.model';
+import SimpleTemplate from '@/components/SimpleTemplate';
 import DefaultTemplate from '@/templates/DefaultTemplate';
 import BusinessTemplate from '@/templates/BusinessTemplae';
 import CurriculumTemplate from '@/components/CurriculumTemplate';
-import SimpleTemplate from '@/components/SimpleTemplate';
 
 interface Props {
     user: User;

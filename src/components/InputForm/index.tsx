@@ -6,30 +6,41 @@ interface Props {
   register: any,
   errors: any,
   fieldName: string,
-  label: string,
-  placeholder: string
+  label?: string,
+  placeholder: string,
+  icon?: any,
+  style?: any,
+  classprop?:string,
+  styleLabel?:string,
+  required: boolean,
 }
 
-const InputForm = ({ id, register, errors, fieldName, label, placeholder }: Props) => {
+const InputForm = ({ id, register, errors, fieldName, label, placeholder, icon, style, required, classprop, styleLabel }: Props) => {
   return (
-    <div className='flex flex-col'>
-      <label className="ff-roboto block">
-        {label}
-      </label>
+    <div className={`flex flex-col mb-4 mt-4 lg:mb-0 ${classprop }`}>
+      {
+        label ?
+          <label className={`ff-roboto block mb-1 ${styleLabel}`}>
+            {label}
+          </label> : null
+      }
+      {/* {icon} */}
       <input
         id={id}
-        {...register(`${fieldName}`, { required: true })}
+        {...register(`${fieldName}`, { required})}
         className={`ff-roboto shadow-md rounded-lg opacity-100 p-2 w-full text-md placeholder:text-gray-400 border-0 border-[1px] border-[#D8D5D5] appearance-none focus:border-[2px] dark:border-[##D8D5D5] dark:focus:border-[#203F51] focus:outline-none focus:ring-0 focus:border-[#203F51] peer ${errors[fieldName] === undefined ? "" : "border-red-500"}`}
         placeholder={placeholder}
-        required=""
+        style={style}
       />
-      <div className='h-6 p-0 m-0'>
-      {errors[fieldName] &&
-        <span className="ff-roboto text-red-500 text-xs">
-          This field is required
-        </span>
-      }
-      </div>
+      {required && (
+        <div className="h-6 p-0 m-0">
+          {errors[fieldName] && (
+            <span className="ff-roboto text-red-500 text-xs mt-1">
+              Este campo es obligatorio
+            </span>
+          )}
+        </div>
+      )}
       
     </div>
   )

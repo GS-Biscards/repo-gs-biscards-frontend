@@ -27,7 +27,7 @@ const UserId = ({ params }: any) => {
       {
         isLoading && user !== null ?
           <UserPage user={user} /> :
-          <Spin />
+          <Spin showSpin={isLoading} />
       }
     </>
   )
