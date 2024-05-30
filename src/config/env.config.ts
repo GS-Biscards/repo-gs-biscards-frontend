@@ -5,13 +5,9 @@ export const API_URL = {
     LOGIN:URL_SERVER + "/auth",
     SEARCH: URL_SERVER + "/search",
     GET_USERS: URL_SERVER + "/account/get-all-accounts",
-    CREATE_USER: URL_SERVER + "/users/create-user",
-    GET_USER_BY_USERID: URL_SERVER + "/users/get-user-by-userid",
-    CREATE_ACCOUNT_FREE: URL_SERVER + "/account/create-account-free",
-}
-
     CREATE_USER: URL_SERVER + "/user/create-user",
     GET_USER_BY_USERID: URL_SERVER + "/users/get-user-by-userid",
+    CREATE_ACCOUNT_FREE: URL_SERVER + "/account/create-account-free",
     GET_PROFESSIONS:URL_SERVER+"/professions/get-professions",
     GET_SERVICES:URL_SERVER+"/professions/get-services",
     GET_COMMERCES:URL_SERVER+"/professions/get-commerces",
