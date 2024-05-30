@@ -4,6 +4,8 @@ import { useForm, SubmitHandler } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as Yup from "yup";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { login } from "@/services/auth.services";
 
 // Define la interfaz de datos del formulario
 interface FormData {
@@ -13,6 +15,8 @@ interface FormData {
 }
 
 const LoginFormPage: React.FC = () => {
+  const router = useRouter();
+  //const { setToken } = getAuthStore().getState()
   // Define el esquema de validación usando Yup
   const validationSchema = Yup.object().shape({
     email: Yup.string()
@@ -31,10 +35,17 @@ const LoginFormPage: React.FC = () => {
   });
 
   // Maneja el envío del formulario
-  const onLogin: SubmitHandler<FormData> = (data) => {
-    console.log("data", data);
-  };
+  const onLogin: SubmitHandler<FormData> = async (data) => {
+    const request = { email: data.email, password: data.password }
+    try {
+      const resp = setToken(request)
+      await login(request);
+      router.replace('/update-account')
+    } catch (error: any) {
+      console.log("error", error.response.data.message)
 
+    }
+  };
   // Maneja las acciones adicionales
   const handleForgotPassword = () => {
     console.log("Se hizo clic en el enlace de olvidó su contraseña");
@@ -112,3 +123,11 @@ const LoginFormPage: React.FC = () => {
 };
 
 export default LoginFormPage;
+
+function setToken(request: { email: string; password: string; }) {
+  throw new Error("Function not implemented.");
+}
+function getAuthStore() {
+  throw new Error("Function not implemented.");
+}
+
