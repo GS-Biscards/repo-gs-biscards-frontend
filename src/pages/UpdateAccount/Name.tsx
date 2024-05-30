@@ -58,6 +58,7 @@ const Name = ({ register, errors, setValue, profileImg }: any) => {
         fieldName="profileImg"
         fieldBase64="profileImgBase64"
         label="Profile Picture"
+        required={false}
       />
     </>
   );

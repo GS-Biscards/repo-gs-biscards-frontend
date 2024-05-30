@@ -12,9 +12,13 @@ interface Props {
     itemValue: any,
     itemDescription: any,
     defoultValue?: any,
+    style?: any,
+    classprop?:string,
+    styleLabel?:string,
+    value?:string
 }
 
-const SelectForm = ({ id, register, errors, fieldName, label, placeholder, data, itemValue, itemDescription, defoultValue}: Props) => {
+const SelectForm = ({ id, register, errors, fieldName, label, placeholder, data, itemValue, itemDescription, defoultValue, style, classprop, styleLabel, value}: Props) => {
 
     const [valueSelected, setValueSeleted] = React.useState<string>(defoultValue ? defoultValue : "");
 
@@ -27,16 +31,17 @@ const SelectForm = ({ id, register, errors, fieldName, label, placeholder, data,
 
     return (
 
-        <div className='flex flex-col w-full'>
-            <label htmlFor={`${fieldName}`} className="block">
+        <div className={`flex flex-col w-full  ${classprop }`}>
+            <label htmlFor={`${fieldName}`} className={`block ${styleLabel}`}>
                 {label}
             </label>
             <select
                 id={id}
                 {...register(`${fieldName}`, { required: true })}
-                defaultValue={""}
-                className={`${valueSelected === "" ? "text-gray-400" : "text-black"} h-[60px] bg-white w-full rounded-lg shadow-md px-4 border border-[#D8D5D5] ff-lato text-md opacity-100  placeholder:text-gray-400  appearance-none focus:border  focus:outline-none focus:border-[#203F51] peer ${errors[fieldName] === undefined ? "" : "border-red-500"}`}
+                defaultValue={value}
+                className={`${valueSelected === "" ? "text-gray-400" : "text-black"} bg-white w-full rounded-lg shadow-md px-4 border border-[#D8D5D5] ff-lato text-md opacity-100  placeholder:text-gray-400  appearance-none focus:border  focus:outline-none focus:border-[#203F51] peer ${errors[fieldName] === undefined ? "" : "border-red-500"}`}
                 onChange={(e: any) => handlChange(e)}
+                style={style}
             >
                 <option value="" disabled >{placeholder}...</option>
                 {

@@ -24,7 +24,7 @@ const navItems = [
 ];
 
 const UpdateAccountPage: React.FC = () => {
-  const { register, handleSubmit, formState: { errors }, setValue, getValues, } = useForm<UpdUserFree>();
+  const { register, handleSubmit, watch, formState: { errors }, setValue, getValues, } = useForm<UpdUserFree>();
 
   const [itemSel, setItemSel] = React.useState<number>(1);
   const { updateUser } = useUpdate();
@@ -32,7 +32,8 @@ const UpdateAccountPage: React.FC = () => {
   const { token } = getAuthStore().getState();
   const {user, getUser } = getUserIdStore().getState();
   const [id, setId] = useState('')
-  //console.log('cuenta con el id', user)    
+  const tipo = user.account.typeUser
+  console.log('cuenta con el id', tipo)    
 
   useEffect(() => {
     if (token) {
@@ -49,17 +50,18 @@ const UpdateAccountPage: React.FC = () => {
 
   useEffect(() => {
     if(user){
+      console.log('-------------------user', user.address)
       setValue("firstName", user.account.firstName);
       setValue("lastName", user.account.lastName);
       setValue("profileImg", user.imagesAccount.profileImg);
       setValue("phoneNumber", user.account.phoneNumber);
       setValue("history", user.account.history);
-      setValue("country", user.address[0].country);
-      setValue("province", user.address[0].province);
-      setValue("locality", user.address[0].locality);
-      setValue("street", user.address[0].street);
-      setValue("number", user.address[0].number);
-      setValue("profession", user.professions[0].name);
+      setValue("country", user.address[0]?.country);
+      setValue("province", user.address[0]?.province);
+      setValue("locality", user.address[0]?.locality);
+      setValue("street", user.address[0]?.street);
+      setValue("number", user.address[0]?.number);
+      setValue("profession", user.professions[0]?.name);
       setValue("rol_cargo", user.account.rol_cargo);
       setValue("facebookUrl", user.socialMedia.facebookUrl);
       setValue("instagramUrl", user.socialMedia.instagramUrl);
@@ -97,13 +99,13 @@ const UpdateAccountPage: React.FC = () => {
           className="flex flex-col w-full max-w-md mx-auto p-8 lg:p-12"
         >
           {itemSel === 1 && (
-            <Name register={register} errors={errors} setValue={setValue} profileImg={user.imagesAccount.profileImg}/>
+            <Name register={register} errors={errors} setValue={setValue} profileImg={user?.imagesAccount.profileImg}/>
           )}
           {itemSel === 2 && <History register={register} errors={errors} />}
 
-          {itemSel === 3 && <Address register={register} errors={errors} />}
+          {itemSel === 3 && <Address register={register} errors={errors} watch={watch}/>}
 
-          {itemSel === 4 && <Profession register={register} errors={errors} />}
+          {itemSel === 4 && <Profession register={register} errors={errors} tipo={tipo}/>}
           {itemSel === 5 && <SocialMedia register={register} errors={errors} />}
 
           <div className="flex flex-col gap-4 w-full text-gray-700">

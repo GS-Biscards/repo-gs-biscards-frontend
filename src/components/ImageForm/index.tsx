@@ -9,10 +9,10 @@ interface Props {
   fieldName: string;
   fieldBase64: string;
   label: string;
-
+  required: boolean
 }
 
-function ImageForm({ id, register, errors, setValue, fieldName, fieldBase64, label }: Props) {
+function ImageForm({ id, register, errors, setValue, fieldName, fieldBase64, label, required }: Props) {
   const [preview, setPreview] = useState<string | null>(null);
 
   const handleFileChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -35,7 +35,7 @@ function ImageForm({ id, register, errors, setValue, fieldName, fieldBase64, lab
         {label}
       </label>
       <input
-        {...register(`${fieldName}`, { required: true })}
+        {...register(`${fieldName}`, { required})}
         className={`appearance-none shadow-md border border-gray-300 rounded-lg opacity-100 p-2 w-full text-md placeholder:text-gray-400 ${errors[fieldName] === undefined ? "" : "border-red-500"} file:text-sm file:text-white  file:rounded-sm file:h-[2.9rem] file:px-2 file:bg-gray-400`}
         aria-describedby="user_profile_help"
         id={id}
@@ -45,7 +45,10 @@ function ImageForm({ id, register, errors, setValue, fieldName, fieldBase64, lab
       <div className="mt-1 text-sm text-gray-500 dark:text-gray-300" id="user_profile_help">
         Una foto de perfil es útil para confirmar que ha iniciado sesión en su cuenta
       </div>
-      {errors[fieldName] && <span className="text-red-500 text-xs">Este campo es obligatorio</span>}
+      {required && (
+        <div>
+          {errors[fieldName] && <span className="text-red-500 text-xs">Este campo es obligatorio</span>}
+        </div>)}
     </div>
   );
 }
