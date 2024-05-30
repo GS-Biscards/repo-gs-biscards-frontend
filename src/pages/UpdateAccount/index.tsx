@@ -31,9 +31,8 @@ const UpdateAccountPage: React.FC = () => {
   const [account, setAccount] = useState([]);
   const { token } = getAuthStore().getState();
   const {user, getUser } = getUserIdStore().getState();
-  const [id, setId] = useState('')
-  const tipo = user.account.typeUser
-  console.log('cuenta con el id', tipo)    
+  const [id, setId] = useState(''); 
+  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
     if (token) {
@@ -75,25 +74,48 @@ const UpdateAccountPage: React.FC = () => {
   };
 
   return (
-    <div className="flex w-full h-full items-center bg-white">
-      <div className="w-[20%] h-full">
-        <div className=" p-4 bg-gradient-to-b from-[#203f51] to-[#82aaaa] min-h-screen">
+    <div className="flex flex-col lg:flex-row w-full h-full items-center bg-white">
+      {/* icono del menu movile */}
+      <div className="lg:hidden w-full flex justify-between items-center px-4 bg-gradient-to-b from-[#203f51] to-[#82aaaa]">
+        <img
+          src={"asset/icons/logo-blanco.png"}
+          alt={"guilsoft-logo"}
+          width={139}
+          height={52}
+          className="mt-4"
+        />
+        <button onClick={() => setMenuOpen(!menuOpen)} className="text-white focus:outline-none">
+          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d={menuOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16m-7 6h7"}></path>
+          </svg>
+        </button>
+      </div>
+      <div className={`lg:w-[20%] w-full h-full ${menuOpen ? 'block' : 'hidden'} lg:block`}>
+        <div className=" px-4 py-8 bg-gradient-to-b from-[#203f51] to-[#82aaaa] min-h-screen">
+          {!menuOpen && (
+            <img
+              src={"asset/icons/logo-blanco.png"}
+              alt={"guilsoft-logo"}
+              width={139}
+              height={52}
+            />            
+          )}
           {navItems.map((item) => (
             <div
               key={item.value}
-              className={`w-full p-2 rounded-l-lg ml-8 my-4 cursor-pointer ${
+              className={`w-full p-2 rounded-lg my-4 cursor-pointer ${
                 itemSel === item.value
                   ? "act bg-white text-[#203F51]"
                   : "dis text-white"
               } hover:bg-white hover:text-[#203F51]`}
-              onClick={() => setItemSel(item.value)}
+              onClick={() => {setItemSel(item.value); setMenuOpen(false); }}
             >
               {item.name}
             </div>
           ))}
         </div>
       </div>
-      <div className="h-screen overflow-y-scroll w-[80%]">
+      <div className="h-screen overflow-y-scroll lg:w-[80%]">
         <form
           onSubmit={handleSubmit(update)}
           className="flex flex-col w-full max-w-md mx-auto p-8 lg:p-12"
@@ -105,7 +127,7 @@ const UpdateAccountPage: React.FC = () => {
 
           {itemSel === 3 && <Address register={register} errors={errors} watch={watch}/>}
 
-          {itemSel === 4 && <Profession register={register} errors={errors} tipo={tipo}/>}
+          {itemSel === 4 && <Profession register={register} errors={errors} tipo={user.account.typeUser}/>}
           {itemSel === 5 && <SocialMedia register={register} errors={errors} />}
 
           <div className="flex flex-col gap-4 w-full text-gray-700">
