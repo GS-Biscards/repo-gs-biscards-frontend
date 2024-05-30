@@ -11,15 +11,19 @@ interface Props {
   icon?: any,
   style?: any,
   classprop?:string,
+  styleLabel?:string,
   required: boolean,
 }
 
-const InputForm = ({ id, register, errors, fieldName, label, placeholder, icon, style, required, classprop }: Props) => {
+const InputForm = ({ id, register, errors, fieldName, label, placeholder, icon, style, required, classprop, styleLabel }: Props) => {
   return (
-    <div className={`flex flex-col mb-4 lg:mb-0 ${classprop }`}>
-      <label className="ff-roboto block mb-1">
-        {label}
-      </label>
+    <div className={`flex flex-col mb-4 mt-4 lg:mb-0 ${classprop }`}>
+      {
+        label ?
+          <label className={`ff-roboto block mb-1 ${styleLabel}`}>
+            {label}
+          </label> : null
+      }
       {/* {icon} */}
       <input
         id={id}

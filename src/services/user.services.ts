@@ -1,10 +1,10 @@
 import { API_URL } from "@/config/env.config";
+import { User } from "@/models/user.model";
 import axios from "axios";
 
 export const getUsers = async () => {
   try {
     const user: any = await axios.get(API_URL.GET_USERS)
-    console.log('datos del servidor', user.data)
     if (user) {
       return user.data
     }
@@ -29,3 +29,24 @@ export const getUserId = async (req: any) => {
     return null
   }
 }
+
+export const searchUsersByValue = async (value: string): Promise<User[]> => {
+  try {
+    const users: any = await axios.post(API_URL.GET_USERS, value)
+    const result: User[] = [];
+    for (let i = 0; i < 5; i++) {
+      result.push(...users.data);
+    }
+    return result;
+
+  } catch (error) {
+    return []
+  }
+
+}
+
+export const createUser = async (req: any) => {
+  const resp: any = await axios.post(API_URL.CREATE_USER, req)
+  return resp.data;
+}
+

@@ -1,23 +1,13 @@
 import React from 'react';
 import { User } from '@/models/user.model';
-import FileSaver from "file-saver";
+import { saveContact } from '@/utils/save.file';
 
 interface Props {
     user: User;
 }
 
 const ProfileSection = ({ user }: Props) => {
-    const saveContact = () => {
-        var file = new Blob(
-            [`BEGIN:VCARD\nVERSION:3.0\nFN;CHARSET=UTF-8:${user.firstName} ${user.lastName} ${''}\nN;CHARSET=UTF-8:${''};${''};${''};;\nEMAIL;CHARSET=UTF-8;type=WORK,INTERNET:${user.email}\nTEL;TYPE=WORK,VOICE:${user.personalPhone}\nTEL;TYPE=WORK,VOICE:${user.workPhone}\nLABEL;CHARSET=UTF-8;TYPE=WORK:${''}}\nADR;CHARSET=UTF-8;TYPE=WORK:;;;;;;\nROLE;CHARSET=UTF-8:${user.description}\nORG;CHARSET=UTF-8:${''}\nURL;type=WORK;CHARSET=UTF-8:${window.location.href}\nREV:2020-08-31T03:41:09.870Z\nEND:VCARD`],
-            { type: "text/vcard;charset=utf-8" }
-        );
-        FileSaver.saveAs(
-            file,
-            `${user.firstName}_${user.lastName}.vcf`,
-            true
-        );
-    }
+   
     return (
 
         <div className="w-full mb-6 lg:mb-0 mx-auto relative text-center bg-[#111111] px-6 rounded-[20px] mt-[180px] md:mt-[220px] lg:mt-0 ">
@@ -55,7 +45,7 @@ const ProfileSection = ({ user }: Props) => {
                         rel="noopener noreferrer"
                     >
                         <span className="socialbtn text-[#1773EA]">
-                            <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 320 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+                            <svg stroke="currentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 320 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z"></path>
                             </svg>
                         </span>
@@ -66,7 +56,7 @@ const ProfileSection = ({ user }: Props) => {
                         rel="noopener noreferrer"
                     >
                         <span className="socialbtn text-[#1C9CEA]">
-                            <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+                            <svg stroke="currentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 512 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"></path>
                             </svg>
                         </span>
@@ -92,7 +82,7 @@ const ProfileSection = ({ user }: Props) => {
                         rel="noopener noreferrer"
                     >
                         <span className="socialbtn text-[#0072b1]">
-                            <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 448 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+                            <svg stroke="currentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 448 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z"></path>
                             </svg>
                         </span>
@@ -101,7 +91,7 @@ const ProfileSection = ({ user }: Props) => {
                 <div className="p-7 rounded-2xl mt-7 bg-[#1D1D1D]">
                     <div className="flex py-2.5 border-b border-[#3D3A3A]">
                         <span className="flex-shrink-0 socialbtn bg-black text-[#E93B81] shadow-md">
-                            <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 320 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+                            <svg stroke="currentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 320 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M272 0H48C21.5 0 0 21.5 0 48v416c0 26.5 21.5 48 48 48h224c26.5 0 48-21.5 48-48V48c0-26.5-21.5-48-48-48zM160 480c-17.7 0-32-14.3-32-32s14.3-32 32-32 32 14.3 32 32-14.3 32-32 32zm112-108c0 6.6-5.4 12-12 12H60c-6.6 0-12-5.4-12-12V60c0-6.6 5.4-12 12-12h200c6.6 0 12 5.4 12 12v312z"></path>
                             </svg>
                         </span>
@@ -114,7 +104,7 @@ const ProfileSection = ({ user }: Props) => {
                     </div>
                     <div className="flex py-2.5 border-b border-[#3D3A3A]">
                         <span className="flex-shrink-0 socialbtn bg-black text-[#6AB5B9]  shadow-md">
-                            <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 384 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+                            <svg stroke="currentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 384 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M172.268 501.67C26.97 291.031 0 269.413 0 192 0 85.961 85.961 0 192 0s192 85.961 192 192c0 77.413-26.97 99.031-172.268 309.67-9.535 13.774-29.93 13.773-39.464 0zM192 272c44.183 0 80-35.817 80-80s-35.817-80-80-80-80 35.817-80 80 35.817 80 80 80z"></path>
                             </svg>
                         </span>
@@ -125,7 +115,7 @@ const ProfileSection = ({ user }: Props) => {
                     </div>
                     <div className="flex py-2.5 border-b border-[#3D3A3A]">
                         <span className="flex-shrink-0 socialbtn bg-black text-[#FD7590] shadow-md">
-                            <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+                            <svg stroke="currentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 512 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M176 216h160c8.84 0 16-7.16 16-16v-16c0-8.84-7.16-16-16-16H176c-8.84 0-16 7.16-16 16v16c0 8.84 7.16 16 16 16zm-16 80c0 8.84 7.16 16 16 16h160c8.84 0 16-7.16 16-16v-16c0-8.84-7.16-16-16-16H176c-8.84 0-16 7.16-16 16v16zm96 121.13c-16.42 0-32.84-5.06-46.86-15.19L0 250.86V464c0 26.51 21.49 48 48 48h416c26.51 0 48-21.49 48-48V250.86L302.86 401.94c-14.02 10.12-30.44 15.19-46.86 15.19zm237.61-254.18c-8.85-6.94-17.24-13.47-29.61-22.81V96c0-26.51-21.49-48-48-48h-77.55c-3.04-2.2-5.87-4.26-9.04-6.56C312.6 29.17 279.2-.35 256 0c-23.2-.35-56.59 29.17-73.41 41.44-3.17 2.3-6 4.36-9.04 6.56H96c-26.51 0-48 21.49-48 48v44.14c-12.37 9.33-20.76 15.87-29.61 22.81A47.995 47.995 0 0 0 0 200.72v10.65l96 69.35V96h320v184.72l96-69.35v-10.65c0-14.74-6.78-28.67-18.39-37.77z"></path>
                             </svg>
                         </span>
@@ -140,7 +130,7 @@ const ProfileSection = ({ user }: Props) => {
                     </div>
                     <div className="flex py-2.5 border-b border-[#3D3A3A]">
                         <span className="flex-shrink-0 socialbtn bg-black text-[#C17CEB] shadow-md">
-                            <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 448 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+                            <svg stroke="currentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 448 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M0 464c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V192H0v272zm320-196c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v40c0 6.6-5.4 12-12 12h-40c-6.6 0-12-5.4-12-12v-40zm0 128c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v40c0 6.6-5.4 12-12 12h-40c-6.6 0-12-5.4-12-12v-40zM192 268c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v40c0 6.6-5.4 12-12 12h-40c-6.6 0-12-5.4-12-12v-40zm0 128c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v40c0 6.6-5.4 12-12 12h-40c-6.6 0-12-5.4-12-12v-40zM64 268c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v40c0 6.6-5.4 12-12 12H76c-6.6 0-12-5.4-12-12v-40zm0 128c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v40c0 6.6-5.4 12-12 12H76c-6.6 0-12-5.4-12-12v-40zM400 64h-48V16c0-8.8-7.2-16-16-16h-32c-8.8 0-16 7.2-16 16v48H160V16c0-8.8-7.2-16-16-16h-32c-8.8 0-16 7.2-16 16v48H48C21.5 64 0 85.5 0 112v48h448v-48c0-26.5-21.5-48-48-48z"></path>
                             </svg>
                         </span>
@@ -149,18 +139,19 @@ const ProfileSection = ({ user }: Props) => {
                         </div>
                     </div>
                     <div className="flex py-2.5 " >
-                        <span className="flex-shrink-0 socialbtn bg-black text-[#E93B81] shadow-md undefined cursor-pointer " onClick={() => saveContact()}>
+                        <span className="flex-shrink-0 socialbtn bg-black text-[#E93B81] shadow-md undefined cursor-pointer " onClick={() => saveContact(user)}>
                             <svg stroke="currentColor" fill="currentColor" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" height="1em" width="1em" viewBox="0 0 256 256" enable-background="new 0 0 256 256" >
                                 <g><g><g>
                                     <path d="M21.7,39.9c-4.7,1.2-8.4,4.4-10.5,9.1L10,51.5v76.4v76.4l1.3,2.9c1.6,3.5,4.4,6.2,8,7.9c2.5,1.2,3,1.2,11.2,1.4l8.6,0.2l0.3-2.2c0.7-4.8,4.2-9.4,8.5-11.5c3-1.4,9.1-1.4,12.2,0c4.4,2,7.9,6.7,8.5,11.4l0.3,2.1H128h58.9l0.6-2.8c2.1-10.9,15-15.7,23.6-8.8c2.9,2.3,4.6,5.1,5.3,8.8l0.6,2.8l8.5-0.1l8.6-0.1l3-1.5c3.6-1.8,6-4.2,7.7-7.9l1.2-2.6v-76.4V51.5l-1.5-3.1c-1.8-3.6-4.2-6-7.9-7.7l-2.6-1.2l-105.1-0.1C46.7,39.3,23.4,39.4,21.7,39.9z M84.6,69.5c11.1,1.9,20.8,7.1,28.7,15.3c6.1,6.4,10.3,13.8,12.7,22.5c1.2,4.2,1.3,5.2,1.3,13.1c0,7.9-0.1,8.9-1.3,13.1c-2.4,8.8-6.6,16.1-12.7,22.5c-20.1,21.1-53.3,21.4-74,0.8C14.2,132,21.5,89.7,53.4,74C63,69.3,74,67.7,84.6,69.5z M228,84.8c2.4,1.8,3.2,3.3,3.2,6.2s-0.7,4.4-3.2,6.2c-1.2,1-1.6,1-41.1,1h-39.8l-1.6-1.1c-4.4-3.1-4-10,0.7-12.5c1.7-0.9,2.5-0.9,41.1-0.8C226.4,83.8,226.8,83.8,228,84.8z M228,114.3c2.4,1.8,3.2,3.3,3.2,6.2c0,2.9-0.7,4.4-3.2,6.2c-1.2,1-1.6,1-41.1,1h-39.9l-1.6-1.2c-4.3-3.3-3.8-9.9,1-12.5c1.5-0.8,3.3-0.8,41-0.7C226.3,113.3,226.8,113.3,228,114.3z M227.3,143.6c2.4,1.3,3.4,3,3.6,5.7c0.3,3.2-0.8,5.4-3.4,6.9l-1.9,1.2h-38.9h-38.9l-1.9-1.2c-4.7-2.7-4.7-9.7,0-12.5l1.9-1.2h39C225.1,142.7,225.6,142.7,227.3,143.6z" /><path fill="#000000" d="M70.9,84.7c-5.9,1.3-11.3,5.1-13.6,9.4c-1.4,2.9-2.7,8.1-3,13c-0.9,12,3,23.5,10.6,31.3l2.4,2.4l-1.1,1.9c-3.4,5.9-5.4,7.3-13.2,8.9c-3.2,0.6-6.5,1.4-7.3,1.8l-1.5,0.6l3.9,2.9c14.7,11,33.3,12.7,49.4,4.4c3.5-1.8,10.2-6.6,10.5-7.5c0.1-0.4-2.1-1-9.1-2.4c-2.6-0.6-5.1-1.3-6-2c-2-1.3-4.5-4.3-5.8-6.9l-0.9-1.8l1.6-1.4c4.2-3.7,8.9-12.5,10.3-19.3c1.8-8.4,1-18.9-1.7-25C92.7,86.9,81.6,82.4,70.9,84.7z" /></g></g></g>
                             </svg>
                         </span>
-                        <div className="text-left ml-2.5 undefined cursor-pointer" onClick={() => saveContact()}>
+                        <div className="text-left ml-2.5 undefined cursor-pointer" onClick={() => saveContact(user)}>
                             <p className="text-xs text-[#A6A6A6]">{"Vcard"}</p>
                             <p className="text-white break-all">{"Guardar contacto"}</p>
                         </div>
                     </div>
                 </div>
+                
                 <div
                     onClick={() => window.open(user.accountImg.downloadFile)}
                     className="inline-flex items-center mx-auto bg-gradient-to-r from-[#FA5252] to-[#DD2476] duration-200 transition ease-linear hover:bg-gradient-to-l from-[#DD2476] to-[#fa5252ef] px-8 py-3 text-lg text-white rounded-[35px] mt-6 cursor-pointer"

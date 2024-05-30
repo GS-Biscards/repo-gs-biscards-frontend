@@ -126,7 +126,7 @@ const Gallery = ({ user }: Props) => {
               onClick={() => closeModal()}
               stroke="currentColor"
               fill="currentColor"
-              stroke-width="0"
+              strokeWidth="0"
               viewBox="0 0 16 16"
               className="text-3xl cursor-pointer absolute right-2 -top-12 md:-right-10 md:-top-6 z-50 text-white transition transform hover:rotate-45 duration-300 ease-in-out "
               height="1em"

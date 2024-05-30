@@ -4,19 +4,20 @@ import { useForm, SubmitHandler } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as Yup from "yup";
 import Link from "next/link";
+import Name from "./Name";
+import { UpdUserFree } from "@/models/userFree.model";
+import History from "./History";
+import Address from "./Address";
+import Profession from "./Profession";
+import SocialMedia from "./SocialMedia";
 
-// Define la interfaz de datos del formulario
-interface FormData {
-  email: string;
-  password: string;
-  confirmPassword: string;
-  terms: boolean;
-}
+
 const navItems = [
-  { name: "Home", value: 1 },
-  { name: "Nombre", value: 2 },
-  { name: "Profesión", value: 3 },
-  { name: "Editar", value: 4 },
+  { name: "Nombre", value: 1 },
+  { name: "Sobre mí", value: 2 },
+  { name: "Direccion", value: 3 },
+  { name: "Profesión", value: 4 },
+  { name: "Redes Sociales", value: 5 },
 ];
 
 const UpdateAccountPage: React.FC = () => {
@@ -24,14 +25,20 @@ const UpdateAccountPage: React.FC = () => {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<FormData>();
+    setValue,
+    getValues,
+  } = useForm<UpdUserFree>();
   const [itemSel, setItemSel] = React.useState<number>(1);
-  const items = [1, 2, 3, 4];
-  // Maneja el envío del formulario
-  const update: SubmitHandler<FormData> = (data) => {
+
+  const update: SubmitHandler<UpdUserFree> = (data) => {
     console.log("datos", data);
     // Realizar acción de registro aquí
   };
+
+  useEffect(() => {
+    setValue("firstName", "Carlos");
+    setValue("lastName", "Carlos");
+  }, []);
 
   return (
     <div className="flex w-full h-full items-center bg-white">
@@ -40,7 +47,7 @@ const UpdateAccountPage: React.FC = () => {
           {navItems.map((item) => (
             <div
               key={item.value}
-              className={`w-full p-2 rounded-l-lg ml-8 my-4 ${
+              className={`w-full p-2 rounded-l-lg ml-8 my-4 cursor-pointer ${
                 itemSel === item.value
                   ? "act bg-white text-[#203F51]"
                   : "dis text-white"
@@ -56,6 +63,24 @@ const UpdateAccountPage: React.FC = () => {
         onSubmit={handleSubmit(update)}
         className="flex flex-col w-full max-w-md mx-auto p-8 lg:p-12"
       >
+        {itemSel === 1 && (
+          <Name register={register} errors={errors} setValue={setValue} />
+        )}
+        {itemSel === 2 && (
+          <History register={register} errors={errors}/>
+        )}
+
+        {itemSel === 3 && (
+          <Address register={register} errors={errors}/>
+        )}
+
+        {itemSel === 4 && (
+          <Profession register={register} errors={errors}/>
+        )}
+        {itemSel === 5 && (
+          <SocialMedia register={register} errors={errors}/>
+        )}
+
         <div className="flex flex-col gap-4 w-full text-gray-700">
           <button
             type="submit"
@@ -63,6 +88,29 @@ const UpdateAccountPage: React.FC = () => {
           >
             Guardar
           </button>
+        </div>
+        <div className="flex justify-between gap-4 text-white mt-8">
+          {itemSel !== 1 && (
+            <button
+              onClick={() => setItemSel((prev) => (prev > 1 ? prev - 1 : prev))}
+              className="w-[132px] h-[43px]  text-center text-base border text-slate-900 border-gray-300 font-semibold rounded hover:bg-gray-500"
+            >
+              Anterior
+            </button>
+          )}
+          {itemSel !== 5 && (
+            <button
+              onClick={() => {
+                setItemSel((prev) =>
+                  prev < navItems.length ? prev + 1 : prev
+                );
+                console.log("get values", getValues());
+              }}
+              className="w-[132px] h-[43px] text-white text-center text-base bg-slate-900 font-semibold rounded hover:bg-slate-400"
+            >
+              Siguiente
+            </button>
+          )}
         </div>
       </form>
     </div>
