@@ -12,10 +12,10 @@ const userIdStore = create(
           try {
             const user = await getUserId(id);
             set(() => ({ user }));
-            return true;
+            return user;
           } catch (error) {
             console.error("Error al obtener el usuario:", error);
-            return false;
+            return null;
           }
         },
       }),

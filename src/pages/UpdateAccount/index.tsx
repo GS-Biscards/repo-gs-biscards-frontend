@@ -49,7 +49,6 @@ const UpdateAccountPage: React.FC = () => {
 
   useEffect(() => {
     if(user){
-      console.log('-------------------user', user.address)
       setValue("firstName", user.account.firstName);
       setValue("lastName", user.account.lastName);
       setValue("profileImg", user.imagesAccount.profileImg);
@@ -75,7 +74,6 @@ const UpdateAccountPage: React.FC = () => {
 
   return (
     <div className="flex flex-col lg:flex-row w-full h-full items-center bg-white">
-      {/* icono del menu movile */}
       <div className="lg:hidden w-full flex justify-between items-center px-4 bg-gradient-to-b from-[#203f51] to-[#82aaaa]">
         <img
           src={"asset/icons/logo-blanco.png"}

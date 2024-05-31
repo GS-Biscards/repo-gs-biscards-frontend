@@ -29,5 +29,5 @@ interface UserType {
 
 export interface UserIdType {
   user: any;
-  getUser: (id: string) => Promise<boolean>;
+  getUser: (id: string) => Promise<any>;
 }

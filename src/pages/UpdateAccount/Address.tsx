@@ -24,7 +24,7 @@ const Address = ({ register, errors, watch}: any) => {
         try {
             const response = await fetch('https://restcountries.com/v3.1/all');
             const data: any[] = await response.json();                
-            console.log('paises', data)
+            //console.log('paises', data)
             const countryNames = data.map(country => country.name.common).sort();
             setCountries(countryNames);
         } catch (error) {
