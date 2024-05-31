@@ -4,6 +4,8 @@ import { useForm, SubmitHandler } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as Yup from "yup";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { resetPass } from "@/services/user.services";
 
 // Define la interfaz de datos del formulario
 interface FormData {
@@ -11,6 +13,7 @@ interface FormData {
 }
 
 const ResetPasswordPage: React.FC = () => {
+  const router = useRouter();
   // Define el esquema de validación usando Yup
   const validationSchema = Yup.object().shape({
     email: Yup.string()
@@ -24,9 +27,16 @@ const ResetPasswordPage: React.FC = () => {
   });
 
   // Maneja el envío del formulario
-  const onResetPassword: SubmitHandler<FormData> = (data) => {
-    console.log("datos", data);
-    // Realizar acción de restablecimiento de contraseña aquí
+  const onResetPassword: SubmitHandler<FormData> =async(data) => {
+    const request = { email: data.email }
+    try {
+      await resetPass(request);
+      console.log("enviado al email: ",request)
+      router.replace('/login-form')
+    } catch (error: any) {
+      console.log("error", error.response.data.message)
+
+    }
   };
 
   return (

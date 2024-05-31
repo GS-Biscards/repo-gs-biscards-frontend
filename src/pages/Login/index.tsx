@@ -7,6 +7,9 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { login } from "@/services/auth.services";
 
+import { getAuthStore } from "@/stores/auth/auth.store";
+import { Result } from "postcss";
+
 // Define la interfaz de datos del formulario
 interface FormData {
   email: string;
@@ -16,7 +19,7 @@ interface FormData {
 
 const LoginFormPage: React.FC = () => {
   const router = useRouter();
-  //const { setToken } = getAuthStore().getState()
+  const { setToken } = getAuthStore().getState()
   // Define el esquema de validación usando Yup
   const validationSchema = Yup.object().shape({
     email: Yup.string()
@@ -39,7 +42,10 @@ const LoginFormPage: React.FC = () => {
     const request = { email: data.email, password: data.password }
     try {
       const resp = setToken(request)
-      await login(request);
+      const resul = await login(request);
+      console.log("enviado: ",request)
+      console.log("recibido:",resul.data)
+
       router.replace('/update-account')
     } catch (error: any) {
       console.log("error", error.response.data.message)
@@ -123,11 +129,3 @@ const LoginFormPage: React.FC = () => {
 };
 
 export default LoginFormPage;
-
-function setToken(request: { email: string; password: string; }) {
-  throw new Error("Function not implemented.");
-}
-function getAuthStore() {
-  throw new Error("Function not implemented.");
-}
-

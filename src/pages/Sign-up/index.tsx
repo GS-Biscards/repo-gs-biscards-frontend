@@ -4,6 +4,8 @@ import { useForm, SubmitHandler } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as Yup from "yup";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { SignUp } from "@/services/user.services";
 
 // Define la interfaz de datos del formulario
 interface FormData {
@@ -14,6 +16,7 @@ interface FormData {
 }
 
 const SignUpFormPage: React.FC = () => {
+  const router = useRouter();
   // Define el esquema de validación usando Yup
   const validationSchema = Yup.object().shape({
     email: Yup.string()
@@ -21,10 +24,10 @@ const SignUpFormPage: React.FC = () => {
       .required("El correo electrónico es obligatorio"),
     password: Yup.string()
       .min(4, "La contraseña debe tener al menos 4 caracteres")
-      .max(15, "La contraseña no debe exceder los 15 caracteres")
+      .max(8, "La contraseña no debe exceder los 8 caracteres")
       .required("La contraseña es obligatoria"),
     confirmPassword: Yup.string()
-      .oneOf([Yup.ref('password')], 'Las contraseñas no coinciden')
+      .oneOf([Yup.ref('password')], "Las contraseñas deben coincidir")
       .required('Confirmar contraseña es obligatorio'),
     terms: Yup.boolean()
       .oneOf([true], "Debe aceptar los Términos y Condiciones y las Políticas de Privacidad")
@@ -37,9 +40,17 @@ const SignUpFormPage: React.FC = () => {
   });
 
   // Maneja el envío del formulario
-  const onSignUp: SubmitHandler<FormData> = (data) => {
-    console.log("datos", data);
-    // Realizar acción de registro aquí
+  const onSignUp: SubmitHandler<FormData> = async (data) => {
+    const request = { email: data.email, password: data.password }
+    try {
+      await SignUp(request);
+      console.log("enviado: ",request)
+      router.replace('/login-form')
+    } catch (error: any) {
+      console.log("error", error.response.data.message)
+
+    }
+    
   };
 
   return (

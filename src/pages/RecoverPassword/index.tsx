@@ -4,22 +4,27 @@
     import { yupResolver } from "@hookform/resolvers/yup";
     import * as Yup from "yup";
     import Link from "next/link";
+    import { useRouter } from "next/navigation";
+    import { recoverPass } from "@/services/user.services";
 
     // Define la interfaz de datos del formulario
     interface FormData {
+    email:string,
     password: string;
     confirmPassword: string;
     }
 
     const RecoverPasswordPage: React.FC = () => {
+    const router = useRouter();
     // Define el esquema de validación usando Yup
     const validationSchema = Yup.object().shape({
         password: Yup.string()
-        .min(6, "La contraseña debe tener al menos 6 caracteres")
-        .required("La contraseña es obligatoria"),
+        .min(4, "La contraseña debe tener al menos 4 caracteres")
+        .max(8, "La contraseña no debe exceder los 8 caracteres") 
+        .required("La contraseña es obligatoria"), 
         confirmPassword: Yup.string()
-        .oneOf([Yup.ref('password')], 'Las contraseñas deben coincidir')
-        .required('Confirma tu contraseña')
+        .oneOf([Yup.ref("password")], "Las contraseñas deben coincidir")
+        .required("Confirma tu contraseña"),
     });
 
     // Inicializa el formulario usando react-hook-form
@@ -32,9 +37,16 @@
     });
 
     // Maneja el envío del formulario
-    const onSavePassword: SubmitHandler<FormData> = (data) => {
-        console.log("datos", data);
-        // Realizar acción de restablecimiento de contraseña aquí
+    const onSavePassword: SubmitHandler<FormData> = async (data) => {
+        const request = { email: data.email, password: data.password };
+        try {
+        const resul = await recoverPass(request);
+        console.log("enviado al email: ", request);
+        console.log("recuperarr", resul);
+        router.replace("/login-form");
+        } catch (error: any) {
+        console.log("error", error.response.data.message);
+        }
     };
 
     // Estado para mostrar/ocultar la contraseña
@@ -62,8 +74,28 @@
                 Cambiar contraseña
                 </h1>
                 <p className="mb-4 text-sm text-gray-700 text-justify">
-                Por favor, crea una contraseña única y nueva para este sitio, sin utilizar contraseñas anteriores de otros sitios web.                </p>
+                Por favor, crea una contraseña única y nueva para este sitio, sin
+                utilizar contraseñas anteriores de otros sitios web.{" "}
+                </p>
                 <div className="flex flex-col gap-4 w-full text-gray-700">
+                <div>
+                    <label htmlFor="email" className="block text-sm font-medium">
+                    Correo electrónico
+                    </label>
+                    <input
+                    type="email"
+                    id="email"
+                    placeholder="Ingresa tu correo electrónico"
+                    {...register("email")}
+                    className="mt-1 block w-full p-2 border border-gray-300 rounded"
+                    aria-invalid={errors.email ? "true" : "false"}
+                    />
+                    {errors.email && (
+                    <span className="text-red-600 text-sm">
+                        {errors.email.message}
+                    </span>
+                    )}
+                </div>
                 <div>
                     <label htmlFor="password" className="block text-sm font-medium">
                     Crear nueva contraseña
@@ -83,7 +115,10 @@
                     )}
                 </div>
                 <div>
-                    <label htmlFor="confirmPassword" className="block text-sm font-medium">
+                    <label
+                    htmlFor="confirmPassword"
+                    className="block text-sm font-medium"
+                    >
                     Confirmar nueva contraseña
                     </label>
                     <input
@@ -127,4 +162,3 @@
     };
 
     export default RecoverPasswordPage;
-        
