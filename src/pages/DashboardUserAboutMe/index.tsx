@@ -4,11 +4,13 @@
     import { yupResolver } from "@hookform/resolvers/yup";
     import * as Yup from "yup";
     import { useRouter } from "next/navigation";
+    import { getProfessions } from "@/services/profession.services";
+
 
     // Define la interfaz de datos del formulario
     interface FormData {
-    tipoUser: string;
-    profesion?: string;
+    typeUser: string;
+    idProfession?: string;
     rol_cargo?: string;
     rubro_comercio?: string;
     servicio?: string;
@@ -23,45 +25,45 @@
 
     // Define el esquema de validación usando Yup
     const validationSchema = Yup.object().shape({
-    tipoUser: Yup.string().required("El tipo de usuario es obligatorio"),
-    profesion: Yup.string()
-    .when('tipoUser',([tipoUser]) =>{
-        // is: (tipoUser: string) => tipoUser === 'Persona Física',
-    console.log("que tiene tipo user",(tipoUser))
-    return (tipoUser ==="Persona Fisica" ?
+    typeUser: Yup.string().required("El tipo de usuario es obligatorio"),
+    idProfession: Yup.string()
+    .when(' typeUser',([ typeUser]) =>{
+        // is: ( typeUser: string) =>  typeUser === 'Persona Física',
+    console.log("que tiene tipo user",( typeUser))
+    return ( typeUser ==="Persona Fisica" ?
     Yup.string().required("La profesión es obligatoria"): Yup.string())
 
     }),
     rol_cargo: Yup.string()
-    .when('tipoUser',([tipoUser]) =>{
-        return (tipoUser ==="Persona Física" ?  
+    .when(' typeUser',([ typeUser]) =>{
+        return ( typeUser ==="Persona Física" ?  
         Yup.string().required("El rol o cargo es obligatorio") : Yup.string())
     }),
     rubro_comercio: Yup.string()
-    .when('tipoUser',([tipoUser]) =>{
-        console.log("que tiene tipo user juridica",(tipoUser))
-        return (tipoUser ==="Persona Jurídica" ?  
+    .when(' typeUser',([ typeUser]) =>{
+        console.log("que tiene tipo user juridica",( typeUser))
+        return ( typeUser ==="Persona Jurídica" ?  
         Yup.string().required("El rubro o comercio es obligatorio") : Yup.string())
     }),
     servicio: Yup.string()
-    .when('tipoUser',([tipoUser]) =>{
-        console.log("que tiene tipo user juridica",(tipoUser))
-        return (tipoUser ==="Persona Jurídica" ?  
+    .when(' typeUser',([ typeUser]) =>{
+        console.log("que tiene tipo user juridica",( typeUser))
+        return ( typeUser ==="Persona Jurídica" ?  
         Yup.string().required("El servicio es obligatorio") : Yup.string())
     }),
 
-//   rol_cargo: Yup.string().when('tipoUser', {
-//     is: (tipoUser: string) => tipoUser === 'Persona Física',
+//   rol_cargo: Yup.string().when(' typeUser', {
+//     is: ( typeUser: string) =>  typeUser === 'Persona Física',
 //     then: Yup.string().required("El rol o cargo es obligatorio"),
 //     otherwise: Yup.string(),
 //   }),
-//   rubro_comercio: Yup.string().when('tipoUser', {
-//     is: (tipoUser: string) => tipoUser === 'Persona Jurídica',
+//   rubro_comercio: Yup.string().when(' typeUser', {
+//     is: ( typeUser: string) =>  typeUser === 'Persona Jurídica',
 //     then: Yup.string().required("El rubro o comercio es obligatorio"),
 //     otherwise: Yup.string(),
 //   }),
-//   servicio: Yup.string().when('tipoUser', {
-//     is: (tipoUser: string) => tipoUser === 'Persona Jurídica',
+//   servicio: Yup.string().when(' typeUser', {
+//     is: ( typeUser: string) =>  typeUser === 'Persona Jurídica',
 //     then: Yup.string().required("El servicio es obligatorio"),
 //     otherwise: Yup.string(),
 //   }),
@@ -72,8 +74,22 @@
 });
 
     // Opciones para las listas desplegables
-    const tipoUser = ["Persona Física", "Persona Jurídica"];
-    const profesion = ["Abogado", "Ingeniero", "Profesor", "Contador", "Otro"];
+    const  typeUser = ["Persona Física", "Persona Jurídica"];
+    const [professions,setProfessions] = useState([])
+    
+    useEffect(() => {
+        const fetchCountries = async () => {
+            try {
+                const response = await getProfessions();
+                setProfessions(response);  
+                console.log("profesiones:",response)             
+            } catch (error) {
+                console.error("Error fetching countries:", error);
+            }
+        };
+
+        fetchCountries();
+    }, []);
     const rubro_comercio = [
         "Turístico",
         "Alimenticio",
@@ -143,26 +159,26 @@
                 </h2>
                 <div className="flex flex-col gap-4 w-full text-gray-700">
                 <div>
-                    <label htmlFor="tipoUser" className="block text-sm font-medium">
+                    <label htmlFor="typeUser" className="block text-sm font-medium">
                     Tipo de Usuario
                     </label>
                     <select
-                    id="tipoUser"
-                    {...register("tipoUser")}
+                    id="typeUser"
+                    {...register("typeUser")}
                     onChange={handleTipoUserChange}
                     className="mt-1 block w-full p-2 border border-gray-300 rounded"
                     required
                     >
                     <option value="">Selecciona el tipo de usuario</option>
-                    {tipoUser.map((tipo) => (
+                    { typeUser.map((tipo) => (
                         <option key={tipo} value={tipo}>
                         {tipo}
                         </option>
                     ))}
                     </select>
-                    {errors.tipoUser && (
+                    {errors. typeUser && (
                     <span className="text-red-600 text-sm">
-                        {errors.tipoUser.message}
+                        {errors. typeUser.message}
                     </span>
                     )}
                 </div>
@@ -170,27 +186,27 @@
                     <>
                     <div>
                         <label
-                        htmlFor="profesion"
+                        htmlFor="idProfession"
                         className="block text-sm font-medium"
                         >
                         Profesión
                         </label>
                         <select
-                        id="profesion"
-                        {...register("profesion")}
+                        id="idProfession"
+                        {...register("idProfession")}
                         className="mt-1 block w-full p-2 border border-gray-300 rounded"
                         required
                         >
                         <option value="">Selecciona tu profesión</option>
-                        {profesion.map((profesion) => (
-                            <option key={profesion} value={profesion}>
-                            {profesion}
+                        {professions.map((profession:any) => (
+                            <option key={profession?.id} value={profession?.id}>
+                            {profession.name}
                             </option>
                         ))}
                         </select>
-                        {errors.profesion && (
+                        {errors.idProfession && (
                         <span className="text-red-600 text-sm">
-                            {errors.profesion.message}
+                            {errors.idProfession.message}
                         </span>
                         )}
                     </div>

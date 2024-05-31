@@ -5,6 +5,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as Yup from "yup";
 import { useRouter } from "next/navigation";
 import { createAccountFree } from "@/services/account.services";
+import UserId from "@/app/[userId]/page";
 
 
 // Define la interfaz de datos del formulario
@@ -41,13 +42,18 @@ const DashboardUserSocial: React.FC = () => {
     console.log("formulario2", JSON.parse(formulario2));
     console.log("formulario3", JSON.parse(formulario3));
     console.log("formulario4", data);
+    const formData = new FormData();
     const request1 = {
-        ...JSON.parse(formulario1), ...JSON.parse(formulario2) ,...JSON.parse(formulario3),...data
+        
+        ...JSON.parse(formulario1), ...JSON.parse(formulario2) ,...JSON.parse(formulario3),...data,userId:"oqorOxhJewdAsTY3gsRe", 
 
     }
     
         console.log("2" ,request1);
-        const resp = await  createAccountFree(request1)
+        Object.keys(request1).forEach((key) => {
+            formData.append(key, request1[key]);
+        });
+        const resp = await  createAccountFree(formData)
     // localStorage.setItem("formulario3", JSON.stringify(data));
     // router.push('/register-user2/paso3');
 };

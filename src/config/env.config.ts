@@ -8,4 +8,5 @@ export const API_URL = {
     GET_USER_BY_USERID: URL_SERVER + "/users/get-user-by-userid",
     LOGIN:URL_SERVER + "/auth",
     CREATE_ACCOUNT_FREE: URL_SERVER + "/account/create-account-free",
+    GET_PROFESSIONS:URL_SERVER+"/professions/get-professions",
 }
